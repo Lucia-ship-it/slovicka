@@ -111,6 +111,8 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
   .card .face { min-height: 46vh; }
   .rate .btn { min-height: 56px; font-size: 1.05rem; }
   .card .actions .row .btn { min-height: 48px; }
+  .card .actions .row.spread { flex-wrap: nowrap; }
+  .card .actions .row .btn { padding-inline: 10px; }
   .btn { min-height: 44px; }
   .btn.ghost.small { min-height: 40px; }
 }
@@ -175,7 +177,7 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 const RAW = /*WORDS*/;
 const WORDS = RAW.trim().split("\n").map(l => { const [en, sk, ex] = l.split("|"); return { id: en + "|" + sk, en, sk, ex }; });
 const BYID = Object.fromEntries(WORDS.map(w => [w.id, w]));
-const PAGE = 50, SESSION = 20;
+const PAGE = 50, SESSION = 20, WRITE_MIN = 20;
 const INTERVALS = [0, 1, 3, 7, 14]; // days per box; Viem in the last box = learned
 const today = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
 
@@ -304,7 +306,7 @@ function viewSort(c) {
 
 function viewLearn(c) {
   if (!c.h && !c.n) return `<div class="panel empty stack"><h2>Zatiaľ nie je čo učiť</h2><p class="muted">Najprv v Triedení označ, ktoré slová vieš. Tie, pri ktorých váhaš, a nové slová sa objavia tu.</p><div><button class="btn primary" data-go="sort">Začať triediť</button></div></div>`;
-  const o = st.opts;
+  const o = st.opts, wr = c.h + c.n;
   return `<div class="stack">
     <div class="row spread"><h2>Na dnes</h2><span class="muted small num">séria ${streak()} ${streak() === 1 ? "deň" : streak() < 5 && streak() > 1 ? "dni" : "dní"}</span></div>
     <div class="decks">
@@ -317,12 +319,15 @@ function viewLearn(c) {
       <div class="panel deck n">
         <span class="tag">Nové</span>
         <div class="row" style="align-items:baseline"><span class="big num">${c.dueN}</span><span class="muted small num">na opakovanie z ${c.n}</span></div>
-        <div class="opts" role="group" aria-label="Spôsob">
-          <button class="chip" data-mode="cards" aria-pressed="${o.mode === "cards"}">Kartičky</button>
-          <button class="chip" data-mode="write" aria-pressed="${o.mode === "write"}">Písanie</button>
-        </div>
+        <p class="small muted">Kartičky: spomeň si a otoč.</p>
         <button class="btn primary" data-start="n" ${c.dueN ? "" : "disabled"}>${c.dueN ? "Učiť sa" : "Na dnes hotovo"}</button>
       </div>
+    </div>
+    <div class="panel stack" style="gap:10px">
+      <div class="row spread"><h3>Písanie</h3><span class="small muted num">${wr} z ${WRITE_MIN} slov</span></div>
+      ${wr >= WRITE_MIN
+        ? `<p class="small muted">Vidíš slovenské slovo a napíšeš anglické. Zahrnuté sú slová zo skupín Váham a Nové.</p><div><button class="btn primary" data-write="1">Spustiť písanie</button></div>`
+        : `<p class="small muted">Odomkne sa, keď budeš mať aspoň ${WRITE_MIN} slov v skupinách Váham a Nové. Zatiaľ ich máš ${wr}.</p><div class="bar" aria-hidden="true"><span class="k" style="width:${(100 * wr / WRITE_MIN).toFixed(0)}%"></span></div>`}
     </div>
     <div class="panel stack" style="gap:10px">
       <span class="small muted">Smer pri kartičkách</span>
@@ -336,13 +341,13 @@ function viewLearn(c) {
   </div>`;
 }
 
-function startSession(deck, extra) {
+function startSession(deck, extra, write) {
   const d = today();
-  let ids = WORDS.filter(w => { const s = st.w[w.id]; return s && (deck ? s[0] === deck : s[0] !== "k") && (extra || s[2] <= d); })
+  let ids = WORDS.filter(w => { const s = st.w[w.id]; return s && (deck ? s[0] === deck : s[0] !== "k") && (extra || write || s[2] <= d); })
     .sort((a, b) => st.w[a.id][2] - st.w[b.id][2] || Math.random() - 0.5).slice(0, SESSION).map(w => w.id);
   for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
   if (!ids.length) return;
-  const mode = deck === "n" && st.opts.mode === "write" ? "write" : "cards";
+  const mode = write ? "write" : "cards";
   session = { deck, queue: ids, i: 0, total: ids.length, flipped: false, hint: false, checked: false, verdict: null, typed: "", mode, res: { k: 0, h: 0, n: 0 }, again: new Set() };
   render();
 }
@@ -456,9 +461,9 @@ document.addEventListener("click", e => {
     toast(sortPage().length ? "Uložené. Ďalšia strana je pripravená." : "Uložené. Všetko je roztriedené.");
     return;
   }
-  if (t.dataset.mode) { st.opts.mode = t.dataset.mode; save(); render(); return; }
   if (t.dataset.dir) { st.opts.dir = t.dataset.dir; save(); render(); return; }
   if (t.dataset.start) { startSession(t.dataset.start, false); return; }
+  if (t.dataset.write) { startSession(null, true, true); return; }
   if (t.dataset.extra) { startSession(null, true); return; }
   if (t.id === "flip") { session.flipped = true; render(); return; }
   if (t.id === "hint") { session.hint = true; if (session.mode === "write") session.typed = $("#typein").value; render(); return; }
