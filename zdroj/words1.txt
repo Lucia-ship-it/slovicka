@@ -1,0 +1,238 @@
+be|byť|I want to be a teacher.
+have|mať|I have two brothers.
+do|robiť|What do you do on weekends?
+say|povedať|What did she say?
+go|ísť|Let's go home.
+get|dostať, získať|Did you get my message?
+make|vyrobiť, urobiť|I'll make some coffee.
+know|vedieť, poznať|I don't know the answer.
+think|myslieť|I think it's a good idea.
+take|vziať|Take your umbrella.
+see|vidieť|Can you see the sea from here?
+come|prísť|Come here, please.
+want|chcieť|I want a glass of water.
+look|pozerať sa|Look at this photo.
+use|použiť|Can I use your phone?
+find|nájsť|I can't find my keys.
+give|dať|Give me a minute.
+tell|povedať (niekomu)|Tell me the truth.
+work|pracovať|I work in an office.
+call|volať|I'll call you tomorrow.
+try|skúsiť|Try this cake.
+ask|pýtať sa|Can I ask you something?
+need|potrebovať|I need some help.
+feel|cítiť sa|I feel tired today.
+become|stať sa|She became a doctor.
+leave|odísť, nechať|I have to leave now.
+put|položiť|Put the book on the table.
+mean|znamenať|What does this word mean?
+keep|nechať si, udržať|Keep the change.
+let|nechať, dovoliť|Let me help you.
+begin|začať|The film begins at eight.
+seem|zdať sa|You seem happy.
+help|pomôcť|Can you help me?
+talk|rozprávať sa|We need to talk.
+turn|otočiť, odbočiť|Turn left at the corner.
+start|začať|When do you start work?
+show|ukázať|Show me your ticket.
+hear|počuť|I can't hear you.
+play|hrať|The kids are playing outside.
+run|bežať|I run every morning.
+move|hýbať sa, presťahovať sa|We moved to Bratislava last year.
+like|mať rád|I like chocolate.
+live|bývať, žiť|Where do you live?
+believe|veriť|I don't believe it.
+hold|držať|Hold my hand.
+bring|priniesť|Bring a jacket.
+happen|stať sa|What happened?
+write|písať|Write your name here.
+sit|sedieť|Please sit down.
+stand|stáť|Stand in line, please.
+lose|stratiť|I lost my wallet.
+pay|platiť|Can I pay by card?
+meet|stretnúť|Nice to meet you.
+include|zahŕňať|Breakfast is included.
+continue|pokračovať|Please continue.
+learn|učiť sa|I'm learning English.
+change|zmeniť|Plans have changed.
+lead|viesť|This road leads to the castle.
+understand|rozumieť|I understand.
+watch|sledovať|We watched a film last night.
+follow|nasledovať|Follow me.
+stop|zastaviť|Stop the car!
+create|vytvoriť|She created a new website.
+speak|hovoriť|Do you speak English?
+read|čítať|I read before bed.
+spend|minúť, stráviť|I spent too much money.
+grow|rásť, pestovať|Tomatoes grow fast in summer.
+open|otvoriť|Open the window, please.
+walk|kráčať, chodiť|We walked to the park.
+win|vyhrať|Our team won!
+offer|ponúknuť|Can I offer you a drink?
+remember|pamätať si|Do you remember me?
+love|milovať|I love this song.
+consider|zvážiť|Consider all options.
+appear|objaviť sa|A cat appeared at the door.
+buy|kúpiť|I need to buy milk.
+wait|čakať|Wait for me!
+serve|podávať, slúžiť|Dinner is served.
+die|zomrieť|The plant died.
+send|poslať|Send me the photos.
+expect|očakávať|I expect an answer soon.
+build|stavať|They built a new bridge.
+stay|zostať|Stay here.
+fall|padnúť|Be careful, don't fall.
+cut|strihať, rezať|Cut the bread, please.
+reach|dosiahnuť, dočiahnuť|I can't reach the top shelf.
+kill|zabiť|Smoking kills.
+remain|zostať|Please remain seated.
+suggest|navrhnúť|What do you suggest?
+raise|zdvihnúť|Raise your hand.
+pass|podať, prejsť|Pass the salt, please.
+sell|predávať|They sell fresh bread.
+require|vyžadovať|This job requires patience.
+report|hlásiť|Report the problem to the manager.
+decide|rozhodnúť sa|I can't decide.
+pull|ťahať|Pull the door.
+push|tlačiť|Push the button.
+break|zlomiť, rozbiť|I broke my phone.
+explain|vysvetliť|Can you explain that again?
+hope|dúfať|I hope you feel better.
+develop|vyvinúť, rozvíjať|We developed a new app.
+carry|niesť|Can you carry this bag?
+drive|šoférovať|Can you drive?
+eat|jesť|Let's eat something.
+drink|piť|Drink more water.
+sleep|spať|I slept badly.
+wake up|zobudiť sa|I wake up at seven.
+get up|vstať|I get up early.
+wash|umyť|Wash your hands.
+cook|variť|I like to cook.
+clean|upratať, čistiť|I cleaned the kitchen.
+close|zatvoriť|Close the door, please.
+finish|dokončiť|Did you finish your homework?
+choose|vybrať si|Choose one.
+agree|súhlasiť|I agree with you.
+forget|zabudnúť|Don't forget your passport.
+answer|odpovedať|Answer the question.
+travel|cestovať|I love to travel.
+visit|navštíviť|We visited my grandma.
+fly|letieť|We fly to London on Monday.
+arrive|prísť, doraziť|When does the train arrive?
+return|vrátiť sa, vrátiť|I'll return the book tomorrow.
+enjoy|užívať si|Enjoy your meal!
+prefer|uprednostňovať|I prefer tea to coffee.
+worry|robiť si starosti|Don't worry.
+miss|chýbať, zmeškať|I missed the bus.
+hate|nenávidieť|I hate waiting.
+check|skontrolovať|Check your email.
+fix|opraviť|Can you fix my bike?
+borrow|požičať si|Can I borrow your pen?
+lend|požičať (niekomu)|Can you lend me ten euros?
+order|objednať|I'd like to order a pizza.
+book|rezervovať|I booked a table for two.
+rent|prenajať|We rented a car.
+share|zdieľať, podeliť sa|Let's share the dessert.
+smile|usmievať sa|Smile for the photo!
+laugh|smiať sa|We laughed a lot.
+cry|plakať|The baby is crying.
+sing|spievať|She sings beautifully.
+dance|tancovať|Do you want to dance?
+swim|plávať|Can you swim?
+throw|hodiť|Throw me the ball.
+catch|chytiť|I caught a cold.
+fill|naplniť|Fill in this form.
+join|pridať sa|Can I join you?
+count|počítať|Count to ten.
+guess|hádať|Guess who I met today.
+hurry|ponáhľať sa|Hurry up!
+hide|skryť|Where did you hide the gift?
+invite|pozvať|I invited them to dinner.
+introduce|predstaviť|Let me introduce my friend.
+improve|zlepšiť|I want to improve my English.
+prepare|pripraviť|I need to prepare for the meeting.
+protect|chrániť|Sunscreen protects your skin.
+save|ušetriť, uložiť|Save the file.
+search|hľadať|I searched everywhere.
+compare|porovnať|Compare the prices.
+describe|opísať|Describe the man you saw.
+discuss|diskutovať|Let's discuss it later.
+mention|spomenúť|Did he mention me?
+notice|všimnúť si|I didn't notice the sign.
+plan|plánovať|We planned a trip.
+practise|precvičovať|Practise every day.
+promise|sľúbiť|I promise.
+recommend|odporučiť|Can you recommend a restaurant?
+refuse|odmietnuť|He refused to help.
+repeat|zopakovať|Could you repeat that?
+reply|odpovedať (na správu)|I'll reply to your email later.
+seem|zdať sa|It seems easy.
+solve|vyriešiť|We solved the problem.
+steal|ukradnúť|Someone stole my bike.
+teach|učiť (niekoho)|She teaches maths.
+touch|dotknúť sa|Don't touch that!
+wear|mať oblečené|She's wearing a red dress.
+wish|priať si|I wish you luck.
+wonder|uvažovať, zaujímať sa|I wonder why he left.
+apologize|ospravedlniť sa|I apologize for being late.
+complain|sťažovať sa|He always complains.
+deliver|doručiť|They deliver food.
+exist|existovať|Does it really exist?
+fail|zlyhať, neuspieť|I failed the test.
+fit|sedieť, padnúť|These shoes don't fit.
+hang|zavesiť|Hang your coat here.
+hit|udrieť|The ball hit the window.
+hurt|bolieť, zraniť|My back hurts.
+imagine|predstaviť si|Imagine a world without war.
+kiss|bozkať|He kissed her goodbye.
+knock|klopať|Someone is knocking.
+lie|klamať; ležať|Don't lie to me.
+lift|zdvihnúť|Lift the box carefully.
+mind|vadiť|Do you mind if I sit here?
+own|vlastniť|They own a small shop.
+pack|zbaliť|Pack your suitcase.
+pick up|vyzdvihnúť|I'll pick you up at six.
+point|ukázať (prstom)|Don't point at people.
+pour|naliať|Pour me some wine.
+pray|modliť sa|They pray every Sunday.
+print|vytlačiť|Can you print this?
+receive|prijať, dostať|I received your letter.
+relax|oddýchnuť si|Sit down and relax.
+remove|odstrániť|Remove your shoes, please.
+ring|zvoniť|The phone is ringing.
+shout|kričať|Don't shout at me.
+shut|zavrieť|Shut the door.
+smell|voňať, cítiť|It smells good.
+taste|chutiť|This soup tastes great.
+sound|znieť|That sounds great.
+spell|hláskovať|How do you spell your name?
+support|podporovať|My family supports me.
+switch on|zapnúť|Switch on the light.
+switch off|vypnúť|Switch off your phone.
+tie|zaviazať|Tie your shoes.
+wake|zobudiť|Don't wake the baby.
+waste|plytvať|Don't waste time.
+win back|získať späť|She won back his trust.
+look for|hľadať|I'm looking for the station.
+look after|starať sa o|Can you look after my cat?
+find out|zistiť|I found out the truth.
+give up|vzdať sa|Never give up.
+turn on|zapnúť|Turn on the TV.
+turn off|vypnúť|Turn off the lights.
+put on|obliecť si|Put on your coat.
+take off|vyzliecť; vzlietnuť|The plane takes off at noon.
+go out|ísť von|Let's go out tonight.
+come back|vrátiť sa|Come back soon!
+sit down|sadnúť si|Please sit down.
+calm down|upokojiť sa|Calm down, everything is fine.
+set up|zriadiť, nastaviť|I set up a new account.
+run out of|minúť sa|We ran out of milk.
+get on|nastúpiť|Get on the bus.
+get off|vystúpiť|Get off at the next stop.
+fill in|vyplniť|Fill in your address.
+hang out|tráviť čas|We hang out on Fridays.
+grow up|vyrásť|I grew up in a small town.
+break down|pokaziť sa|Our car broke down.
+show up|objaviť sa, prísť|He didn't show up.
+work out|cvičiť; vyriešiť|I work out three times a week.
+throw away|vyhodiť|Throw away the old food.

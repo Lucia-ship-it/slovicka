@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>Tisícka slovíčok</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow study column; index-card prompts, segmented status chips, tabs on top. */
+:root {
+  --bg: #f3f5f9;
+  --surface: #ffffff;
+  --line: #dde2ec;
+  --fg: #18203a;
+  --muted: #5d6680;
+  --accent: #2f4fd1;
+  --accent-soft: #e5eafc;
+  --know: #1f8a5b;
+  --know-soft: #def3e9;
+  --unsure: #b7700c;
+  --unsure-soft: #fbefd9;
+  --newc: #c2413b;
+  --newc-soft: #fbe3e1;
+  --rule: #c9d6f2;
+  --font-display: "Bricolage Grotesque", "Avenir Next", system-ui, sans-serif;
+  --font-body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 12px;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #11141f; --surface: #1a1f2e; --line: #2c3346; --fg: #e8ebf4; --muted: #9aa3bb;
+  --accent: #8ea4ff; --accent-soft: #232c4d; --know: #5fcf98; --know-soft: #173327;
+  --unsure: #f0b357; --unsure-soft: #3a2c14; --newc: #f08a84; --newc-soft: #3d1f1e; --rule: #2a3555;
+  color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #11141f; --surface: #1a1f2e; --line: #2c3346; --fg: #e8ebf4; --muted: #9aa3bb;
+  --accent: #8ea4ff; --accent-soft: #232c4d; --know: #5fcf98; --know-soft: #173327;
+  --unsure: #f0b357; --unsure-soft: #3a2c14; --newc: #f08a84; --newc-soft: #3d1f1e; --rule: #2a3555;
+  color-scheme: dark;
+}
+html, body { background: var(--bg); color: var(--fg); }
+body { font-family: var(--font-body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 720px; margin: 0 auto; padding-block: 20px 64px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.3rem; font-weight: 700; }
+p { margin: 0; }
+button { font: inherit; color: inherit; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.savebar { position: sticky; bottom: 0; z-index: 5; margin-inline: -4px; padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 18px -10px rgba(0, 0, 0, 0.25); }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.muted { color: var(--muted); }
+.small { font-size: 0.875rem; }
+.num { font-variant-numeric: tabular-nums; }
+
+header.top { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand .count { font-family: var(--font-display); color: var(--accent); font-weight: 700; }
+.sync { font-size: 0.75rem; color: var(--muted); }
+nav.tabs { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 20px; }
+nav.tabs button { flex: 1; border: 0; background: transparent; border-radius: 999px; padding: 8px 10px; font-weight: 600; color: var(--muted); }
+nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--surface); }
+
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.spread { justify-content: space-between; }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 16px; }
+
+.btn { border: 1px solid var(--line); background: var(--surface); border-radius: 10px; padding: 10px 16px; font-weight: 600; }
+.btn:hover { border-color: var(--accent); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); }
+.btn.ghost { background: transparent; border-color: transparent; color: var(--accent); padding-inline: 8px; }
+.btn:disabled { opacity: 0.45; cursor: default; }
+.btn.know { background: var(--know-soft); border-color: var(--know); color: var(--know); }
+.btn.unsure { background: var(--unsure-soft); border-color: var(--unsure); color: var(--unsure); }
+.btn.newc { background: var(--newc-soft); border-color: var(--newc); color: var(--newc); }
+
+/* progress bar */
+.bar { height: 8px; border-radius: 99px; background: var(--line); overflow: hidden; display: flex; }
+.bar span { display: block; height: 100%; }
+.bar .k { background: var(--know); } .bar .h { background: var(--unsure); } .bar .n { background: var(--newc); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 0.85rem; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: -1px; }
+
+/* sorting list */
+.sortlist { list-style: none; margin: 0; padding: 0; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); }
+.sortlist li { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-top: 1px solid var(--line); }
+.sortlist li:first-child { border-top: 0; }
+.sortlist .w { flex: 1; min-width: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: center; }
+.sortlist .sk { font-weight: 600; font-size: 1.2rem; line-height: 1.25; overflow-wrap: anywhere; }
+.sortlist .en { display: flex; align-items: center; gap: 2px; color: var(--accent); font-weight: 500; font-size: 1.05rem; min-width: 0; overflow-wrap: anywhere; }
+.hide-en .sortlist .en span { visibility: hidden; }
+.seg { display: flex; border: 1px solid var(--line); border-radius: 9px; overflow: hidden; flex-shrink: 0; }
+.seg button { border: 0; border-left: 1px solid var(--line); background: transparent; padding: 7px 10px; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.seg button:first-child { border-left: 0; }
+.seg button.on[data-v="k"] { background: var(--know-soft); color: var(--know); }
+.seg button.on[data-v="h"] { background: var(--unsure-soft); color: var(--unsure); }
+.seg button.on[data-v="n"] { background: var(--newc-soft); color: var(--newc); }
+.speak { border: 0; background: transparent; color: var(--muted); padding: 4px; border-radius: 6px; line-height: 0; }
+.speak:hover { color: var(--accent); }
+.speak svg { width: 18px; height: 18px; }
+@media (max-width: 480px) {
+  .wrap { padding-block: 12px 24px; }
+  header.top { gap: 4px 12px; margin-bottom: 12px; }
+  .sortlist li { flex-wrap: wrap; gap: 8px; padding: 10px 12px 12px; }
+  .sortlist .w { flex-basis: 100%; }
+  .seg { width: 100%; }
+  .seg button { flex: 1; min-height: 44px; padding: 6px 4px; font-size: 0.95rem; }
+  .speak { padding: 9px; margin: -9px 0; }
+  .savebar { flex-wrap: nowrap; gap: 10px; }
+  .savebar .small { font-size: 0.8rem; line-height: 1.35; }
+  .savebar .btn { flex-shrink: 0; padding: 12px 14px; }
+  .card .face { min-height: 46vh; }
+  .rate .btn { min-height: 56px; font-size: 1.05rem; }
+  .card .actions .row .btn { min-height: 48px; }
+  .btn { min-height: 44px; }
+  .btn.ghost.small { min-height: 40px; }
+}
+
+/* decks */
+.decks { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 520px) { .decks { grid-template-columns: 1fr; } }
+.deck { display: flex; flex-direction: column; gap: 10px; }
+.deck .tag { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; }
+.deck.h .tag { color: var(--unsure); } .deck.n .tag { color: var(--newc); }
+.deck .big { font-family: var(--font-display); font-size: 2rem; font-weight: 700; line-height: 1; }
+.opts { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: transparent; border-radius: 99px; padding: 5px 12px; font-size: 0.85rem; font-weight: 600; color: var(--muted); }
+.chip[aria-pressed="true"] { background: var(--accent-soft); border-color: var(--accent); color: var(--accent); }
+
+/* study card */
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+.card .head { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-bottom: 2px solid var(--newc); font-size: 0.85rem; color: var(--muted); }
+.card .face { min-height: 240px; padding: 28px 20px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; text-align: center;
+  background-image: repeating-linear-gradient(to bottom, transparent 0, transparent 35px, var(--rule) 35px, var(--rule) 36px); background-position: 0 20px; }
+.card .prompt { font-family: var(--font-display); font-size: clamp(1.8rem, 7vw, 2.6rem); font-weight: 700; line-height: 1.1; overflow-wrap: anywhere; }
+.card .answer { font-family: var(--font-display); font-size: clamp(1.4rem, 5vw, 1.9rem); font-weight: 500; color: var(--accent); overflow-wrap: anywhere; }
+.card .ex { font-style: italic; color: var(--muted); max-width: 46ch; background: var(--surface); padding: 2px 6px; border-radius: 6px; }
+.card .actions { padding: 14px 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 10px; }
+.rate { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.rate .btn { padding: 12px 6px; }
+.typein { width: 100%; max-width: 320px; font: inherit; font-size: 1.2rem; text-align: center; padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--line); background: var(--surface); color: var(--fg); }
+.typein.ok { border-color: var(--know); } .typein.bad { border-color: var(--newc); }
+.verdict { font-weight: 600; } .verdict.ok { color: var(--know); } .verdict.near { color: var(--unsure); } .verdict.bad { color: var(--newc); }
+
+/* known list */
+.search { width: 100%; font: inherit; padding: 9px 12px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); }
+.known { list-style: none; margin: 0; padding: 0; max-height: 420px; overflow-y: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface); }
+.known li { display: flex; align-items: center; gap: 10px; padding: 8px 12px; border-top: 1px solid var(--line); }
+.known li:first-child { border-top: 0; }
+.known .w { flex: 1; min-width: 0; }
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+@media (max-width: 520px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat { padding: 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
+.stat b { display: block; font-family: var(--font-display); font-size: 1.6rem; line-height: 1.1; }
+.stat.k b { color: var(--know); } .stat.h b { color: var(--unsure); } .stat.n b { color: var(--newc); }
+.empty { text-align: center; padding: 28px 16px; }
+.toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 0.9rem; max-width: calc(100% - 32px); }
+@media (prefers-reduced-motion: no-preference) { .card { animation: pop .18s ease-out; } @keyframes pop { from { transform: translateY(4px); opacity: .6; } } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><h1>Tisícka slovíčok</h1><span class="count num" id="hdrCount"></span></div>
+    <span class="sync" id="sync">Pokrok sa ukladá v tomto prehliadači</span>
+  </header>
+  <nav class="tabs" role="tablist">
+    <button role="tab" id="tab-sort" data-tab="sort">Triedenie</button>
+    <button role="tab" id="tab-learn" data-tab="learn">Učenie</button>
+    <button role="tab" id="tab-stats" data-tab="stats">Prehľad</button>
+  </nav>
+  <main id="view"></main>
+</div>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const RAW = "be|byť|I want to be a teacher.\nhave|mať|I have two brothers.\ndo|robiť|What do you do on weekends?\nsay|povedať|What did she say?\ngo|ísť|Let's go home.\nget|dostať, získať|Did you get my message?\nmake|vyrobiť, urobiť|I'll make some coffee.\nknow|vedieť, poznať|I don't know the answer.\nthink|myslieť|I think it's a good idea.\ntake|vziať|Take your umbrella.\nsee|vidieť|Can you see the sea from here?\ncome|prísť|Come here, please.\nwant|chcieť|I want a glass of water.\nlook|pozerať sa|Look at this photo.\nuse|použiť|Can I use your phone?\nfind|nájsť|I can't find my keys.\ngive|dať|Give me a minute.\ntell|povedať (niekomu)|Tell me the truth.\nwork|pracovať|I work in an office.\ncall|volať|I'll call you tomorrow.\ntry|skúsiť|Try this cake.\nask|pýtať sa|Can I ask you something?\nneed|potrebovať|I need some help.\nfeel|cítiť sa|I feel tired today.\nbecome|stať sa|She became a doctor.\nleave|odísť, nechať|I have to leave now.\nput|položiť|Put the book on the table.\nmean|znamenať|What does this word mean?\nkeep|nechať si, udržať|Keep the change.\nlet|nechať, dovoliť|Let me help you.\nbegin|začať|The film begins at eight.\nseem|zdať sa|You seem happy.\nhelp|pomôcť|Can you help me?\ntalk|rozprávať sa|We need to talk.\nturn|otočiť, odbočiť|Turn left at the corner.\nstart|začať|When do you start work?\nshow|ukázať|Show me your ticket.\nhear|počuť|I can't hear you.\nplay|hrať|The kids are playing outside.\nrun|bežať|I run every morning.\nmove|hýbať sa, presťahovať sa|We moved to Bratislava last year.\nlike|mať rád|I like chocolate.\nlive|bývať, žiť|Where do you live?\nbelieve|veriť|I don't believe it.\nhold|držať|Hold my hand.\nbring|priniesť|Bring a jacket.\nhappen|stať sa|What happened?\nwrite|písať|Write your name here.\nsit|sedieť|Please sit down.\nstand|stáť|Stand in line, please.\nlose|stratiť|I lost my wallet.\npay|platiť|Can I pay by card?\nmeet|stretnúť|Nice to meet you.\ninclude|zahŕňať|Breakfast is included.\ncontinue|pokračovať|Please continue.\nlearn|učiť sa|I'm learning English.\nchange|zmeniť|Plans have changed.\nlead|viesť|This road leads to the castle.\nunderstand|rozumieť|I understand.\nwatch|sledovať|We watched a film last night.\nfollow|nasledovať|Follow me.\nstop|zastaviť|Stop the car!\ncreate|vytvoriť|She created a new website.\nspeak|hovoriť|Do you speak English?\nread|čítať|I read before bed.\nspend|minúť, stráviť|I spent too much money.\ngrow|rásť, pestovať|Tomatoes grow fast in summer.\nopen|otvoriť|Open the window, please.\nwalk|kráčať, chodiť|We walked to the park.\nwin|vyhrať|Our team won!\noffer|ponúknuť|Can I offer you a drink?\nremember|pamätať si|Do you remember me?\nlove|milovať|I love this song.\nconsider|zvážiť|Consider all options.\nappear|objaviť sa|A cat appeared at the door.\nbuy|kúpiť|I need to buy milk.\nwait|čakať|Wait for me!\nserve|podávať, slúžiť|Dinner is served.\ndie|zomrieť|The plant died.\nsend|poslať|Send me the photos.\nexpect|očakávať|I expect an answer soon.\nbuild|stavať|They built a new bridge.\nstay|zostať|Stay here.\nfall|padnúť|Be careful, don't fall.\ncut|strihať, rezať|Cut the bread, please.\nreach|dosiahnuť, dočiahnuť|I can't reach the top shelf.\nkill|zabiť|Smoking kills.\nremain|zostať|Please remain seated.\nsuggest|navrhnúť|What do you suggest?\nraise|zdvihnúť|Raise your hand.\npass|podať, prejsť|Pass the salt, please.\nsell|predávať|They sell fresh bread.\nrequire|vyžadovať|This job requires patience.\nreport|hlásiť|Report the problem to the manager.\ndecide|rozhodnúť sa|I can't decide.\npull|ťahať|Pull the door.\npush|tlačiť|Push the button.\nbreak|zlomiť, rozbiť|I broke my phone.\nexplain|vysvetliť|Can you explain that again?\nhope|dúfať|I hope you feel better.\ndevelop|vyvinúť, rozvíjať|We developed a new app.\ncarry|niesť|Can you carry this bag?\ndrive|šoférovať|Can you drive?\neat|jesť|Let's eat something.\ndrink|piť|Drink more water.\nsleep|spať|I slept badly.\nwake up|zobudiť sa|I wake up at seven.\nget up|vstať|I get up early.\nwash|umyť|Wash your hands.\ncook|variť|I like to cook.\nclean|upratať, čistiť|I cleaned the kitchen.\nclose|zatvoriť|Close the door, please.\nfinish|dokončiť|Did you finish your homework?\nchoose|vybrať si|Choose one.\nagree|súhlasiť|I agree with you.\nforget|zabudnúť|Don't forget your passport.\nanswer|odpovedať|Answer the question.\ntravel|cestovať|I love to travel.\nvisit|navštíviť|We visited my grandma.\nfly|letieť|We fly to London on Monday.\narrive|prísť, doraziť|When does the train arrive?\nreturn|vrátiť sa, vrátiť|I'll return the book tomorrow.\nenjoy|užívať si|Enjoy your meal!\nprefer|uprednostňovať|I prefer tea to coffee.\nworry|robiť si starosti|Don't worry.\nmiss|chýbať, zmeškať|I missed the bus.\nhate|nenávidieť|I hate waiting.\ncheck|skontrolovať|Check your email.\nfix|opraviť|Can you fix my bike?\nborrow|požičať si|Can I borrow your pen?\nlend|požičať (niekomu)|Can you lend me ten euros?\norder|objednať|I'd like to order a pizza.\nbook|rezervovať|I booked a table for two.\nrent|prenajať|We rented a car.\nshare|zdieľať, podeliť sa|Let's share the dessert.\nsmile|usmievať sa|Smile for the photo!\nlaugh|smiať sa|We laughed a lot.\ncry|plakať|The baby is crying.\nsing|spievať|She sings beautifully.\ndance|tancovať|Do you want to dance?\nswim|plávať|Can you swim?\nthrow|hodiť|Throw me the ball.\ncatch|chytiť|I caught a cold.\nfill|naplniť|Fill in this form.\njoin|pridať sa|Can I join you?\ncount|počítať|Count to ten.\nguess|hádať|Guess who I met today.\nhurry|ponáhľať sa|Hurry up!\nhide|skryť|Where did you hide the gift?\ninvite|pozvať|I invited them to dinner.\nintroduce|predstaviť|Let me introduce my friend.\nimprove|zlepšiť|I want to improve my English.\nprepare|pripraviť|I need to prepare for the meeting.\nprotect|chrániť|Sunscreen protects your skin.\nsave|ušetriť, uložiť|Save the file.\nsearch|hľadať|I searched everywhere.\ncompare|porovnať|Compare the prices.\ndescribe|opísať|Describe the man you saw.\ndiscuss|diskutovať|Let's discuss it later.\nmention|spomenúť|Did he mention me?\nnotice|všimnúť si|I didn't notice the sign.\nplan|plánovať|We planned a trip.\npractise|precvičovať|Practise every day.\npromise|sľúbiť|I promise.\nrecommend|odporučiť|Can you recommend a restaurant?\nrefuse|odmietnuť|He refused to help.\nrepeat|zopakovať|Could you repeat that?\nreply|odpovedať (na správu)|I'll reply to your email later.\nsolve|vyriešiť|We solved the problem.\nsteal|ukradnúť|Someone stole my bike.\nteach|učiť (niekoho)|She teaches maths.\ntouch|dotknúť sa|Don't touch that!\nwear|mať oblečené|She's wearing a red dress.\nwish|priať si|I wish you luck.\nwonder|uvažovať, zaujímať sa|I wonder why he left.\napologize|ospravedlniť sa|I apologize for being late.\ncomplain|sťažovať sa|He always complains.\ndeliver|doručiť|They deliver food.\nexist|existovať|Does it really exist?\nfail|zlyhať, neuspieť|I failed the test.\nfit|sedieť, padnúť|These shoes don't fit.\nhang|zavesiť|Hang your coat here.\nhit|udrieť|The ball hit the window.\nhurt|bolieť, zraniť|My back hurts.\nimagine|predstaviť si|Imagine a world without war.\nkiss|bozkať|He kissed her goodbye.\nknock|klopať|Someone is knocking.\nlie|klamať; ležať|Don't lie to me.\nlift|zdvihnúť|Lift the box carefully.\nmind|vadiť|Do you mind if I sit here?\nown|vlastniť|They own a small shop.\npack|zbaliť|Pack your suitcase.\npick up|vyzdvihnúť|I'll pick you up at six.\npoint|ukázať (prstom)|Don't point at people.\npour|naliať|Pour me some wine.\npray|modliť sa|They pray every Sunday.\nprint|vytlačiť|Can you print this?\nreceive|prijať, dostať|I received your letter.\nrelax|oddýchnuť si|Sit down and relax.\nremove|odstrániť|Remove your shoes, please.\nring|zvoniť|The phone is ringing.\nshout|kričať|Don't shout at me.\nshut|zavrieť|Shut the door.\nsmell|voňať, cítiť|It smells good.\ntaste|chutiť|This soup tastes great.\nsound|znieť|That sounds great.\nspell|hláskovať|How do you spell your name?\nsupport|podporovať|My family supports me.\nswitch on|zapnúť|Switch on the light.\nswitch off|vypnúť|Switch off your phone.\ntie|zaviazať|Tie your shoes.\nwake|zobudiť|Don't wake the baby.\nwaste|plytvať|Don't waste time.\nwin back|získať späť|She won back his trust.\nlook for|hľadať|I'm looking for the station.\nlook after|starať sa o|Can you look after my cat?\nfind out|zistiť|I found out the truth.\ngive up|vzdať sa|Never give up.\nturn on|zapnúť|Turn on the TV.\nturn off|vypnúť|Turn off the lights.\nput on|obliecť si|Put on your coat.\ntake off|vyzliecť; vzlietnuť|The plane takes off at noon.\ngo out|ísť von|Let's go out tonight.\ncome back|vrátiť sa|Come back soon!\nsit down|sadnúť si|Please sit down.\ncalm down|upokojiť sa|Calm down, everything is fine.\nset up|zriadiť, nastaviť|I set up a new account.\nrun out of|minúť sa|We ran out of milk.\nget on|nastúpiť|Get on the bus.\nget off|vystúpiť|Get off at the next stop.\nfill in|vyplniť|Fill in your address.\nhang out|tráviť čas|We hang out on Fridays.\ngrow up|vyrásť|I grew up in a small town.\nbreak down|pokaziť sa|Our car broke down.\nshow up|objaviť sa, prísť|He didn't show up.\nwork out|cvičiť; vyriešiť|I work out three times a week.\nthrow away|vyhodiť|Throw away the old food.\ntime|čas|I don't have time.\nperson|osoba|She's a nice person.\npeople|ľudia|There are many people here.\nyear|rok|I'm thirty years old.\nday|deň|Have a nice day!\nweek|týždeň|See you next week.\nmonth|mesiac|I'll be back in a month.\nhour|hodina|The trip takes an hour.\nminute|minúta|Wait a minute.\nsecond|sekunda|Just a second.\nmorning|ráno|Good morning!\nafternoon|popoludnie|I'm free this afternoon.\nevening|večer|What are you doing this evening?\nnight|noc|Good night!\ntoday|dnes|What's the date today?\ntomorrow|zajtra|See you tomorrow.\nyesterday|včera|I saw him yesterday.\nweekend|víkend|Have a good weekend!\nholiday|dovolenka, sviatok|We're on holiday.\nbirthday|narodeniny|Happy birthday!\nway|cesta, spôsob|Is this the way to the station?\nthing|vec|I have a few things to do.\nman|muž|Who is that man?\nwoman|žena|That woman is my aunt.\nchild|dieťa|They have one child.\nchildren|deti|The children are at school.\nboy|chlapec|He's a clever boy.\ngirl|dievča|The girl is reading.\nbaby|bábätko|The baby is sleeping.\nfriend|priateľ, kamarát|She's my best friend.\nfamily|rodina|I have a big family.\nmother|matka|My mother is a nurse.\nfather|otec|My father works in a bank.\nparents|rodičia|My parents live in Košice.\nbrother|brat|My brother is older than me.\nsister|sestra|My sister lives abroad.\nson|syn|Their son is five.\ndaughter|dcéra|My daughter loves horses.\nhusband|manžel|This is my husband, Peter.\nwife|manželka|His wife is a teacher.\ngrandmother|stará mama|My grandmother bakes cakes.\ngrandfather|starý otec|My grandfather was a farmer.\naunt|teta|My aunt lives in Vienna.\nuncle|strýko, ujo|My uncle has a farm.\ncousin|bratranec, sesternica|My cousin is visiting.\nneighbour|sused|Our neighbour is very friendly.\nboyfriend|priateľ (partner)|Her boyfriend is from Spain.\ngirlfriend|priateľka (partnerka)|His girlfriend is a singer.\nguest|hosť|We have guests tonight.\nname|meno|What's your name?\nage|vek|What age is your son?\nlife|život|Life is short.\nworld|svet|I want to travel the world.\ncountry|krajina|Which country are you from?\ncity|mesto|Prague is a beautiful city.\ntown|mestečko|I live in a small town.\nvillage|dedina|My parents live in a village.\nstreet|ulica|What street do you live on?\nroad|cesta|The road is closed.\nhouse|dom|They bought a new house.\nhome|domov|I'm going home.\nflat|byt|I live in a flat.\nroom|izba|My room is small.\nkitchen|kuchyňa|Mum is in the kitchen.\nbathroom|kúpeľňa|Where is the bathroom?\nbedroom|spálňa|The flat has two bedrooms.\nliving room|obývačka|We watch TV in the living room.\ntoilet|toaleta|Where's the toilet?\ndoor|dvere|Close the door.\nwindow|okno|Open the window.\nwall|stena|There's a picture on the wall.\nfloor|podlaha, poschodie|I live on the third floor.\nstairs|schody|Take the stairs.\ngarden|záhrada|We have a small garden.\ntable|stôl|Dinner is on the table.\nchair|stolička|Take a chair.\nbed|posteľ|I'm going to bed.\nsofa|gauč|The cat is on the sofa.\nkey|kľúč|Where's my key?\nlight|svetlo|Turn off the light.\nschool|škola|My kids go to school.\nuniversity|univerzita|She studies at university.\nclass|trieda, hodina|I have a yoga class.\nlesson|lekcia|The lesson starts at nine.\nteacher|učiteľ|Our teacher is strict.\nstudent|študent|I'm a student.\njob|práca, zamestnanie|I love my job.\noffice|kancelária|I'm at the office.\ncompany|firma|I work for a big company.\nboss|šéf|My boss is on holiday.\ncolleague|kolega|My colleagues are nice.\nmeeting|stretnutie, porada|I have a meeting at ten.\nbusiness|podnikanie, obchod|He runs a small business.\nmoney|peniaze|I don't have much money.\nprice|cena|What's the price?\nbill|účet|Can we have the bill, please?\ncash|hotovosť|Do you accept cash?\ncard|karta|Can I pay by card?\nbank|banka|I need to go to the bank.\nshop|obchod|The shop opens at nine.\nsupermarket|supermarket|I'll stop at the supermarket.\nmarket|trh|We buy vegetables at the market.\nrestaurant|reštaurácia|Let's go to a restaurant.\ncafe|kaviareň|Let's meet at the cafe.\nbar|bar|We met in a bar.\nhotel|hotel|Our hotel is near the beach.\nhospital|nemocnica|She's in hospital.\ndoctor|lekár|You should see a doctor.\nnurse|zdravotná sestra|The nurse was very kind.\npharmacy|lekáreň|Is there a pharmacy near here?\nmedicine|liek|Take this medicine twice a day.\npolice|polícia|Call the police!\nchurch|kostol|There's an old church in the village.\nmuseum|múzeum|The museum is closed on Mondays.\nlibrary|knižnica|I borrowed it from the library.\npark|park|Let's walk in the park.\nstation|stanica|Where is the train station?\nairport|letisko|I'll take you to the airport.\nbus|autobus|I go to work by bus.\ntrain|vlak|The train is late.\ncar|auto|I parked the car outside.\nbike|bicykel|I ride my bike to work.\nplane|lietadlo|The plane landed safely.\ntaxi|taxík|Let's take a taxi.\nticket|lístok|Two tickets, please.\ntrip|výlet|How was your trip?\njourney|cesta (cestovanie)|Have a safe journey.\npassport|pas|Don't forget your passport.\nluggage|batožina|My luggage is lost.\nsuitcase|kufor|My suitcase is heavy.\nmap|mapa|Can you show me on the map?\nplace|miesto|This is my favourite place.\narea|oblasť|Is this a safe area?\ncorner|roh|The shop is on the corner.\nbridge|most|Cross the bridge.\nriver|rieka|The river is very wide.\nlake|jazero|We swam in the lake.\nsea|more|I love the sea.\nbeach|pláž|Let's go to the beach.\nmountain|hora|We climbed a mountain.\nhill|kopec|The house is on a hill.\nforest|les|We walked through the forest.\ntree|strom|There's a big tree in the garden.\nflower|kvet|What a beautiful flower!\ngrass|tráva|Don't walk on the grass.\nsky|obloha|The sky is blue.\nsun|slnko|The sun is shining.\nmoon|mesiac (na oblohe)|Look at the moon.\nstar|hviezda|You can see stars tonight.\nweather|počasie|What's the weather like?\nrain|dážď|I love the sound of rain.\nsnow|sneh|The kids played in the snow.\nwind|vietor|The wind is strong today.\nair|vzduch|I need some fresh air.\nwater|voda|A glass of water, please.\nfire|oheň|Sit by the fire.\nanimal|zviera|What's your favourite animal?\ndog|pes|I walk my dog every day.\ncat|mačka|My cat sleeps all day.\nbird|vták|A bird is singing.\nfish|ryba|I don't eat fish.\nhorse|kôň|Can you ride a horse?\nfood|jedlo|The food was delicious.\nbreakfast|raňajky|I eat breakfast at seven.\nlunch|obed|Let's have lunch together.\ndinner|večera|What's for dinner?\nmeal|jedlo (chod)|Enjoy your meal.\nbread|chlieb|I bought fresh bread.\nbutter|maslo|Pass the butter, please.\ncheese|syr|I love cheese.\negg|vajce|I had two eggs for breakfast.\nmeat|mäso|I don't eat meat.\nchicken|kura|Chicken with rice, please.\nrice|ryža|Would you like rice or potatoes?\npotato|zemiak|Peel the potatoes.\nvegetable|zelenina|Eat more vegetables.\nfruit|ovocie|I eat fruit every day.\napple|jablko|An apple a day keeps the doctor away.\nsalad|šalát|I'll have a salad.\nsoup|polievka|The soup is hot.\ncake|koláč, torta|I baked a cake.\nsugar|cukor|No sugar, thanks.\nsalt|soľ|Add a little salt.\nmilk|mlieko|Coffee with milk, please.\ncoffee|káva|Do you want a coffee?\ntea|čaj|A cup of tea, please.\njuice|džús|Orange juice, please.\nbeer|pivo|Two beers, please.\nwine|víno|Red or white wine?\nglass|pohár; sklo|Can I have a glass of water?\ncup|šálka|A cup of coffee.\nplate|tanier|Put it on a plate.\nbottle|fľaša|A bottle of water, please.\nmenu|jedálny lístok|Can I see the menu?\nbody|telo|Exercise is good for your body.\nhead|hlava|I have a headache.\nface|tvár|Wash your face.\neye|oko|She has blue eyes.\near|ucho|My ear hurts.\nnose|nos|Blow your nose.\nmouth|ústa|Open your mouth.\ntooth|zub|I broke a tooth.\nhair|vlasy|She has long hair.\nhand|ruka (dlaň)|Raise your hand.\narm|ruka (paža)|I broke my arm.\nleg|noha|My legs are tired.\nfoot|chodidlo|My foot hurts.\nback|chrbát|I have back pain.\nheart|srdce|My heart is beating fast.\nstomach|žalúdok, brucho|I have a stomach ache.\nhealth|zdravie|Health is more important than money.\npain|bolesť|I'm in pain.\ncold|prechladnutie; zima|I've got a cold.\nclothes|oblečenie|I need new clothes.\nshirt|košeľa|He's wearing a white shirt.\nT-shirt|tričko|I bought a new T-shirt.\ntrousers|nohavice|These trousers are too long.\njeans|džínsy|I usually wear jeans.\ndress|šaty|What a lovely dress!\nskirt|sukňa|She's wearing a black skirt.\njacket|bunda, sako|Take a jacket, it's cold.\ncoat|kabát|Hang your coat here.\nshoes|topánky|I need new shoes.\nhat|klobúk, čiapka|Wear a hat in the sun.\nbag|taška|My bag is heavy.\nphone|telefón|My phone is dead.\ncomputer|počítač|My computer is slow.\ninternet|internet|The internet is down.\nemail|e-mail|I'll send you an email.\nmessage|správa|I got your message.\nphoto|fotka|Can you take a photo of us?\nmusic|hudba|What music do you like?\nsong|pieseň|I love this song.\nfilm|film|Let's watch a film.\nbook|kniha|I'm reading a good book.\nnewspaper|noviny|I read the newspaper every morning.\nnews|správy|Did you hear the news?\nTV|televízia|What's on TV?\ngame|hra|Let's play a game.\nsport|šport|What sports do you play?\nfootball|futbal|He plays football.\nparty|večierok, oslava|Are you coming to the party?\npresent|darček|Thank you for the present.\nproblem|problém|No problem.\nquestion|otázka|Can I ask a question?\nanswer|odpoveď|I don't know the answer.\nidea|nápad|Good idea!\nreason|dôvod|What's the reason?\nexample|príklad|Can you give me an example?\nfact|fakt|That's a fact.\nmistake|chyba|Everyone makes mistakes.\nchance|šanca|Give me a chance.\nchoice|voľba, výber|You have no choice.\ndecision|rozhodnutie|It's your decision.\nplan|plán|What's the plan?\nrule|pravidlo|Those are the rules.\nstory|príbeh|Tell me a story.\nword|slovo|What does this word mean?\nlanguage|jazyk|How many languages do you speak?\nletter|list; písmeno|I wrote her a letter.\nnumber|číslo|What's your phone number?\npart|časť|This is the best part.\nend|koniec|See you at the end of the week.\nbeginning|začiatok|Start at the beginning.\nside|strana|Which side are you on?\ntop|vrch|Look at the top of the page.\nbottom|spodok|It's at the bottom of the bag.\nfront|predná časť|Sit in the front.\nmiddle|stred|Stand in the middle.\ngroup|skupina|We travelled in a group.\nteam|tím|Our team is great.\nlist|zoznam|Make a shopping list.\nkind|druh|What kind of music do you like?\nsize|veľkosť|What size are you?\ncolour|farba|What's your favourite colour?\nshape|tvar|What shape is it?\nnoise|hluk|Stop making noise.\nvoice|hlas|She has a lovely voice.\npaper|papier|I need a piece of paper.\npen|pero|Can I borrow your pen?\nbox|krabica|Put it in the box.\nhelp|pomoc|Thanks for your help.\nlove|láska|Love is all you need.\nfun|zábava|Have fun!\nluck|šťastie (náhoda)|Good luck!\ntrouble|problémy, ťažkosti|Are you in trouble?\ndanger|nebezpečenstvo|Danger! Keep out.\naccident|nehoda|There was an accident on the road.\nemergency|núdza, pohotovosť|Call 112 in an emergency.\nsafety|bezpečnosť|Safety first.\npeace|mier, pokoj|I need some peace and quiet.\nwar|vojna|The war ended in 1945.\nlaw|zákon|It's against the law.\ngovernment|vláda|The government raised taxes.\npower|moc, elektrina|There's no power.\nenergy|energia|I have no energy today.\nexperience|skúsenosť|Do you have any experience?\ninformation|informácie|I need more information.\nopinion|názor|In my opinion, it's too expensive.\nadvice|rada|Can you give me some advice?\ninterest|záujem|Thanks for your interest.\nattention|pozornosť|Pay attention!\ndifference|rozdiel|What's the difference?\ndirection|smer|Which direction is the centre?\ndistance|vzdialenosť|What's the distance to Vienna?\nspace|priestor|There's no space in the car.\ndate|dátum; rande|What's the date today?\nappointment|termín (u lekára)|I have a doctor's appointment.\nreservation|rezervácia|I have a reservation.\nqueue|rad (ľudí)|There's a long queue.\nchange|zmena; drobné|Keep the change.\ngift|dar|What a nice gift!\nsmell|vôňa, pach|What's that smell?\ntaste|chuť|I like the taste.\nfeeling|pocit|I have a bad feeling.\ndream|sen|I had a strange dream.\nmemory|spomienka, pamäť|I have a bad memory.\nhabit|zvyk|It's a bad habit.\nhobby|koníček|What are your hobbies?\nskill|zručnosť|Cooking is a useful skill.\ngoal|cieľ|What is your goal?\nsuccess|úspech|Congratulations on your success!\nresult|výsledok|What was the result?\nrisk|riziko|It's not worth the risk.\nsecret|tajomstvo|Can you keep a secret?\ntruth|pravda|Tell me the truth.\nlie|lož|That's a lie!\njoke|vtip|Tell me a joke.\nsurprise|prekvapenie|What a surprise!\ngood|dobrý|That's a good idea.\nbad|zlý|The weather is bad.\nnew|nový|I have a new job.\nold|starý|This is an old house.\nyoung|mladý|She's very young.\nbig|veľký|They have a big dog.\nsmall|malý|It's a small town.\nlittle|malý, trochu|I speak a little English.\nlarge|veľký|A large coffee, please.\nlong|dlhý|It's a long story.\nshort|krátky, nízky|The film is short.\ntall|vysoký (človek)|He's very tall.\nhigh|vysoký|The mountains are very high.\nlow|nízky|Prices are low here.\ngreat|skvelý|That's great news!\nimportant|dôležitý|This is very important.\ndifferent|iný, odlišný|We are very different.\nsame|rovnaký|We have the same phone.\neasy|ľahký, jednoduchý|The test was easy.\ndifficult|ťažký, náročný|English is not difficult.\nhard|tvrdý; ťažký|It's hard to say.\nsimple|jednoduchý|It's a simple question.\npossible|možný|Is it possible?\nimpossible|nemožný|Nothing is impossible.\nright|správny; pravý|You're right.\nwrong|nesprávny|That's the wrong answer.\ntrue|pravdivý|Is it true?\nreal|skutočný|Is that a real diamond?\nsure|istý|Are you sure?\nready|pripravený|Are you ready?\nfree|voľný; zadarmo|Are you free tonight?\nbusy|zaneprázdnený|I'm busy right now.\nfull|plný|The bus is full.\nempty|prázdny|The fridge is empty.\nopen|otvorený|Is the shop open?\nclosed|zatvorený|The museum is closed.\nearly|skorý, skoro|I'm an early bird.\nlate|neskorý, neskoro|Sorry I'm late.\nfast|rýchly|He's a fast runner.\nquick|rýchly|Can I ask a quick question?\nslow|pomalý|The internet is slow.\nhot|horúci|It's very hot today.\nwarm|teplý|It's warm outside.\ncold|studený|The water is cold.\ncool|chladný; super|That's cool!\nnice|pekný, milý|What a nice day!\nbeautiful|krásny|What a beautiful view!\npretty|pekný|She's very pretty.\nugly|škaredý|What an ugly building!\nhappy|šťastný|I'm so happy for you.\nsad|smutný|Why are you sad?\nangry|nahnevaný|Don't be angry.\ntired|unavený|I'm really tired.\nhungry|hladný|I'm hungry.\nthirsty|smädný|I'm thirsty.\nsick|chorý|I feel sick.\nill|chorý|She's ill today.\nwell|zdravý; dobre|I don't feel well.\nfine|v poriadku|I'm fine, thanks.\nokay|v poriadku|Is everything okay?\nafraid|vystrašený|I'm afraid of spiders.\nscared|vystrašený|Don't be scared.\nworried|ustarostený|I'm worried about him.\nexcited|nadšený|I'm so excited!\nbored|znudený|I'm bored.\nboring|nudný|The film was boring.\ninteresting|zaujímavý|That's interesting.\nfunny|vtipný|He's really funny.\nstrange|zvláštny|That's strange.\nsurprised|prekvapený|I was surprised.\nglad|rád (potešený)|I'm glad you came.\nlucky|šťastný (mať šťastie)|You're lucky!\nproud|hrdý|I'm proud of you.\nkind|láskavý|That's very kind of you.\nfriendly|priateľský|People here are friendly.\npolite|zdvorilý|Be polite.\nrude|nezdvorilý|Don't be rude.\nquiet|tichý|It's quiet here.\nloud|hlasný|The music is too loud.\nclean|čistý|The room is clean.\ndirty|špinavý|My shoes are dirty.\ncheap|lacný|This is cheap.\nexpensive|drahý|It's too expensive.\nrich|bohatý|He's very rich.\npoor|chudobný|They were very poor.\nsafe|bezpečný|Is it safe?\ndangerous|nebezpečný|It's dangerous to swim here.\nhealthy|zdravý|Eat healthy food.\nstrong|silný|He's very strong.\nweak|slabý|I feel weak.\nheavy|ťažký (váhou)|This box is heavy.\nlight|ľahký; svetlý|This bag is light.\ndark|tmavý|It's getting dark.\nbright|jasný|It's a bright day.\nwet|mokrý|My shoes are wet.\ndry|suchý|Is the paint dry?\nsoft|mäkký|The bed is soft.\nfresh|čerstvý|Fresh bread every morning.\ndelicious|chutný|This is delicious!\nsweet|sladký|This cake is very sweet.\nfavourite|obľúbený|What's your favourite food?\nfamous|slávny|She's a famous actress.\npopular|populárny|This place is very popular.\nmodern|moderný|It's a modern city.\npublic|verejný|Use public transport.\nprivate|súkromný|This is a private beach.\nlocal|miestny|Try the local food.\nforeign|cudzí, zahraničný|Do you speak any foreign languages?\ninternational|medzinárodný|It's an international company.\nnational|národný|Today is a national holiday.\nspecial|špeciálny|Today is a special day.\nnormal|normálny|Is that normal?\nusual|obvyklý|I'll have the usual.\ncommon|bežný|It's a common mistake.\nwhole|celý|I ate the whole pizza.\nmain|hlavný|The main problem is money.\ncertain|istý|I'm certain he'll come.\nclear|jasný|Is that clear?\ncorrect|správny|That's correct.\navailable|dostupný|Is this seat available?\nnecessary|nevyhnutný|Is it necessary?\nuseful|užitočný|That's a useful tip.\nperfect|dokonalý|Perfect!\nterrible|hrozný|The weather was terrible.\nawful|strašný|I feel awful.\nwonderful|nádherný|We had a wonderful time.\namazing|úžasný|The view is amazing.\nfantastic|fantastický|That's fantastic!\nexcellent|vynikajúci|Excellent work!\ncomfortable|pohodlný|These shoes are comfortable.\ncareful|opatrný|Be careful!\ncrazy|bláznivý|Are you crazy?\nserious|vážny|Are you serious?\nalone|sám|I live alone.\ntogether|spolu|Let's do it together.\nsingle|slobodný; jediný|Are you single?\nmarried|ženatý, vydatá|Are you married?\nalive|živý|Is the fish still alive?\ndead|mŕtvy; vybitý|My phone is dead.\nnext|ďalší, budúci|See you next week.\nlast|posledný, minulý|I saw him last week.\nfirst|prvý|This is my first time here.\nonly|jediný; iba|It's the only way.\nown|vlastný|I have my own room.\nother|iný, ostatný|Where are the other students?\nanother|ďalší, iný|Can I have another coffee?\nenough|dosť|Do we have enough time?\nfew|málo (počítateľné)|I have a few friends here.\nmany|veľa (počítateľné)|How many people are coming?\nmuch|veľa (nepočítateľné)|How much is it?\nmore|viac|Can I have more?\nmost|najviac, väčšina|Most people agree.\nless|menej|I need less sugar.\nall|všetci, všetko|All my friends are here.\nevery|každý|I run every day.\neach|každý (jednotlivo)|Each room has a balcony.\nboth|obaja|Both answers are correct.\nsome|nejaký, trochu|Would you like some tea?\nany|nejaký (v otázke), žiadny|Do you have any questions?\nno|žiadny; nie|There's no milk.\nnone|žiaden|None of them came.\nvery|veľmi|It's very good.\nreally|naozaj|I really like it.\nquite|celkom, dosť|It's quite cold.\ntoo|príliš; tiež|It's too hot. / Me too.\nalso|tiež|I also speak German.\njust|práve; len|I just arrived.\nstill|stále, ešte|Are you still here?\nalready|už|I've already eaten.\nyet|ešte (nie); už (v otázke)|Have you finished yet?\nagain|znova|Say it again.\nalways|vždy|I always drink coffee in the morning.\nusually|zvyčajne|I usually walk to work.\noften|často|Do you come here often?\nsometimes|niekedy|Sometimes I work from home.\nnever|nikdy|I never eat meat.\never|niekedy (vôbec)|Have you ever been to London?\nnow|teraz|I'm busy now.\nthen|potom; vtedy|And then what happened?\nsoon|čoskoro|See you soon.\nlater|neskôr|Talk to you later.\nbefore|predtým, pred|Wash your hands before eating.\nafter|potom, po|Let's meet after work.\nago|pred (časovo)|I moved here two years ago.\nrecently|nedávno|I recently started a new job.\nfinally|konečne|Finally, the weekend!\nsuddenly|zrazu|Suddenly, the lights went out.\nhere|tu|Come here.\nthere|tam|I'll meet you there.\neverywhere|všade|I looked everywhere.\nsomewhere|niekde|Let's go somewhere nice.\nnowhere|nikde|There's nowhere to park.\nanywhere|kdekoľvek|Sit anywhere you like.\ninside|vnútri|Let's go inside.\noutside|vonku|It's cold outside.\nupstairs|hore (na poschodí)|The bathroom is upstairs.\ndownstairs|dole (na prízemí)|Breakfast is downstairs.\naway|preč|Go away!\nback|späť|I'll be back in five minutes.\nabroad|v zahraničí|I'd like to work abroad.\nnear|blízko|Is there a bank near here?\nfar|ďaleko|Is it far from here?\nalmost|takmer|I'm almost ready.\nmaybe|možno|Maybe tomorrow.\nperhaps|možno|Perhaps you're right.\nprobably|pravdepodobne|It will probably rain.\nof course|samozrejme|Of course you can.\nexactly|presne|Exactly!\nespecially|najmä|I love fruit, especially apples.\nactually|vlastne, v skutočnosti|Actually, I'm from Slovakia.\nanyway|aj tak, každopádne|Anyway, let's go.\ninstead|namiesto toho|Let's have tea instead.\nquickly|rýchlo|Come quickly!\nslowly|pomaly|Please speak slowly.\ncarefully|opatrne|Drive carefully.\neasily|ľahko|You can easily walk there.\nbadly|zle|I slept badly.\nwell|dobre|You speak English very well.\nhard|tvrdo, usilovne|She works hard.\ntogether with|spolu s|I live together with my sister.\nwhat|čo|What's this?\nwho|kto|Who is that?\nwhere|kde|Where are you?\nwhen|kedy|When does it start?\nwhy|prečo|Why are you late?\nhow|ako|How are you?\nwhich|ktorý|Which one do you want?\nwhose|čí|Whose bag is this?\nhow much|koľko (nepočítateľné)|How much does it cost?\nhow many|koľko (počítateľné)|How many children do you have?\nhow long|ako dlho|How long does it take?\nhow often|ako často|How often do you exercise?\nand|a|Tea and coffee.\nbut|ale|It's small but nice.\nor|alebo|Tea or coffee?\nbecause|pretože|I'm late because of the traffic.\nso|takže; tak|It was raining, so we stayed home.\nif|ak, keby|If you want, we can go.\nalthough|hoci|Although it was late, we went out.\nunless|pokiaľ nie|I'll come unless it rains.\nwhile|zatiaľ čo|I read while she cooked.\nuntil|až kým, do|Wait until I come back.\nsince|odkedy|I've lived here since 2015.\nthan|ako (pri porovnaní)|She's taller than me.\nlike|ako (podobne)|It looks like rain.\nabout|o; približne|What's the film about?\nwith|s|Come with me.\nwithout|bez|Coffee without sugar.\nfor|pre; na|This is for you.\nfrom|z, od|I'm from Slovakia.\nto|do, k|I'm going to the shop.\nin|v|I live in Žilina.\non|na|The keys are on the table.\nat|o (čase); pri|See you at six.\nunder|pod|The cat is under the bed.\nover|nad; cez|The plane flew over the city.\nbetween|medzi|The bank is between the cafe and the hotel.\nbehind|za|The garden is behind the house.\nin front of|pred|I'll wait in front of the cinema.\nnext to|vedľa|Sit next to me.\nopposite|oproti|The pharmacy is opposite the bank.\naround|okolo|Let's walk around the lake.\nthrough|cez|We drove through the tunnel.\ninto|do (dovnútra)|Get into the car.\nout of|von z|Get out of here!\nacross|naprieč, cez|Walk across the street.\nalong|pozdĺž|Walk along the river.\nduring|počas|Don't talk during the film.\nagainst|proti|I'm against the idea.\nexcept|okrem|Everyone came except Tom.\nper|za, na (jednotku)|It costs ten euros per person.\nyes|áno|Yes, please.\nplease|prosím|Please sit down.\nthank you|ďakujem|Thank you very much.\nthanks|vďaka|Thanks for coming.\nsorry|prepáč, ľutujem|Sorry, I didn't hear you.\nexcuse me|prepáčte (oslovenie)|Excuse me, where is the station?\nhello|ahoj, dobrý deň|Hello, how are you?\ngoodbye|dovidenia|Goodbye, see you soon.\nwelcome|vitaj|Welcome to Slovakia!\ncheers|na zdravie; vďaka|Cheers!\ncongratulations|gratulujem|Congratulations on your new job!\nbless you|na zdravie (po kýchnutí)|Bless you!\nnever mind|nevadí|Never mind, it's not important.\nno problem|žiadny problém|No problem, I can do it.\nyou're welcome|nie je za čo|You're welcome.\nsee you|uvidíme sa|See you later!\ntake care|maj sa, daj na seba pozor|Take care!\nI'm not sure|nie som si istý|I'm not sure, let me check.\nit depends|záleží na tom|It depends on the weather.\nby the way|mimochodom|By the way, I saw Peter yesterday.\nat least|aspoň|At least we tried.\nin fact|v skutočnosti|In fact, I've never been there.\nfor example|napríklad|I like fruit, for example bananas.\nat the moment|momentálne|I'm busy at the moment.\non time|načas|The train was on time.\nin time|včas|We arrived just in time.\nas soon as possible|čo najskôr|Call me as soon as possible.\none|jeden|One coffee, please.\ntwo|dva|Two tickets, please.\nthree|tri|I have three cats.\nten|desať|It takes ten minutes.\ntwenty|dvadsať|I'm twenty-five.\nhundred|sto|A hundred euros.\nthousand|tisíc|It costs a thousand euros.\nmillion|milión|A million people live here.\nhalf|polovica|Half an hour.\nquarter|štvrť|It's a quarter past five.\ndouble|dvojitý|A double room, please.\nMonday|pondelok|See you on Monday.\nTuesday|utorok|The shop is closed on Tuesday.\nWednesday|streda|I have English on Wednesday.\nThursday|štvrtok|Let's meet on Thursday.\nFriday|piatok|Thank God it's Friday!\nSaturday|sobota|I sleep late on Saturday.\nSunday|nedeľa|We visit my parents on Sunday.\nJanuary|január|My birthday is in January.\nspring|jar|Flowers bloom in spring.\nsummer|leto|We go to the sea in summer.\nautumn|jeseň|Leaves fall in autumn.\nwinter|zima (obdobie)|It snows in winter.\nseason|ročné obdobie|What's your favourite season?\npast|minulosť|Forget the past.\nfuture|budúcnosť|What are your plans for the future?\nmoment|chvíľa|Wait a moment.\ncentury|storočie|The castle is from the 14th century.\nclock|hodiny (nástenné)|The clock is fast.\nwatch|hodinky|What a nice watch!\numbrella|dáždnik|Take an umbrella.\nwallet|peňaženka|I lost my wallet.\nglasses|okuliare|I need my glasses to read.\ntowel|uterák|Can I have a clean towel?\nsoap|mydlo|There's no soap.\nfridge|chladnička|Put the milk in the fridge.\noven|rúra|The cake is in the oven.\nknife|nôž|Pass me the knife.\nfork|vidlička|I need a fork.\nspoon|lyžica|A spoon, please.\nrubbish|odpadky|Take out the rubbish.\nmirror|zrkadlo|Look in the mirror.\npicture|obrázok|Draw a picture.\npresent|súčasnosť; darček|Live in the present.\naddress|adresa|What's your address?\nneighbourhood|štvrť, okolie|It's a quiet neighbourhood.\ncentre|centrum|How do I get to the centre?\nbuilding|budova|It's the tallest building in town.\ntraffic|premávka|The traffic is terrible.\ntraffic lights|semafor|Turn left at the traffic lights.\nparking|parkovanie|Is there parking here?\npetrol|benzín|We need petrol.\nstop|zastávka|Where's the bus stop?\nentrance|vchod|Meet me at the entrance.\nexit|východ|Where's the exit?\nlift|výťah|Take the lift to the fifth floor.\nreception|recepcia|Ask at reception.\nreceipt|bločik, potvrdenka|Can I have a receipt?\ndiscount|zľava|Is there a student discount?\nsale|výpredaj|The shoes were on sale.\ncustomer|zákazník|The customer is always right.\nservice|služba, obsluha|The service was excellent.\ntip|prepitné; tip|Should we leave a tip?\ncinema|kino|Let's go to the cinema.\ntheatre|divadlo|We went to the theatre.\nconcert|koncert|The concert was amazing.\nholiday|voľno|I'm taking a week's holiday.\nsalary|plat|The salary is good.\ninterview|pohovor|I have a job interview tomorrow.\ncareer|kariéra|She has a great career.\nproject|projekt|We're working on a new project.\ntask|úloha|I have many tasks today.\ndeadline|termín (odovzdania)|The deadline is Friday.\nemail address|e-mailová adresa|What's your email address?\npassword|heslo|I forgot my password.\nscreen|obrazovka|The screen is broken.\nbattery|batéria|My battery is low.\ncharger|nabíjačka|Can I borrow your charger?\napp|aplikácia|Download the app.\nwebsite|webová stránka|Check our website.\nvideo|video|Watch this video.\nconversation|rozhovor|We had a long conversation.\nrelationship|vzťah|They're in a relationship.\nwedding|svadba|We're going to a wedding.\ncharacter|povaha; postava|He has a strong character.\nculture|kultúra|I love Japanese culture.\neducation|vzdelanie|Education is important.\nenvironment|životné prostredie|Protect the environment.\nnature|príroda|I love nature.\nsociety|spoločnosť|We live in a modern society.\nsituation|situácia|It's a difficult situation.\ncondition|stav; podmienka|The car is in good condition.\nquality|kvalita|The quality is excellent.\namount|množstvo|A small amount of sugar.\nlevel|úroveň|What's your level of English?\npiece|kúsok|A piece of cake, please.\npair|pár|A pair of shoes.\ncouple|pár (dvojica)|They're a lovely couple.\nbit|kúsok, trochu|I'm a bit tired.\nlot|veľa|Thanks a lot!\nwhole|celok|The whole family came.\nreach|dosah|Keep out of reach of children.\nunderstand|chápať|I understand how you feel.\nmean|myslieť (vážne)|I didn't mean it.\nafford|dovoliť si (finančne)|I can't afford a new car.\nallow|dovoliť|Smoking is not allowed.\nargue|hádať sa|They argue all the time.\nattack|zaútočiť|The dog attacked him.\navoid|vyhnúť sa|Avoid the city centre at rush hour.\nbake|piecť|I'll bake a cake.\ncelebrate|oslavovať|Let's celebrate!\ncancel|zrušiť|The flight was cancelled.\ncause|spôsobiť|The storm caused a lot of damage.\nclimb|liezť, stúpať|We climbed the hill.\ncross|prejsť (cez)|Cross the road carefully.\ndepend|závisieť|It depends on you.\ndownload|stiahnuť|Download the file.\ndraw|kresliť|My son loves to draw.\nearn|zarobiť|How much do you earn?\nenter|vstúpiť|Please enter.\nexercise|cvičiť|I exercise every morning.\nfeed|kŕmiť|Feed the cat, please.\nfight|bojovať, biť sa|Stop fighting!\nfold|zložiť, poskladať|Fold the towels.\nforgive|odpustiť|Please forgive me.\ngreet|pozdraviť|He greeted us at the door.\nhappen to|náhodou|Do you happen to know her?\nkeep in touch|byť v kontakte|Let's keep in touch.\nland|pristáť|The plane landed on time.\nmarry|vziať si|Will you marry me?\nmeasure|merať|Measure the room.\nmix|zmiešať|Mix the flour and the eggs.\nobey|poslúchať|Obey the rules.\npaint|maľovať|We painted the kitchen.\npark|zaparkovať|Where can I park?\npronounce|vysloviť|How do you pronounce this word?\nrealize|uvedomiť si|I didn't realize it was so late.\nrecognize|spoznať|I didn't recognize you!\nrest|oddychovať|You should rest.\nride|jazdiť (na bicykli, koni)|I ride my bike to work.\nshake|triasť, potriasť|Shake hands.\nshop|nakupovať|I like to shop online.\nsign|podpísať|Sign here, please.\nsmoke|fajčiť|Do you smoke?\nspill|rozliať|I spilled my coffee.\nstudy|študovať|I study medicine.\nsuppose|predpokladať|I suppose you're right.\ntranslate|preložiť|Can you translate this?\nupload|nahrať|Upload your photo.\nvote|voliť, hlasovať|Did you vote?\nweigh|vážiť|How much do you weigh?\nwhisper|šepkať|Don't whisper.\n";
+const WORDS = RAW.trim().split("\n").map(l => { const [en, sk, ex] = l.split("|"); return { id: en + "|" + sk, en, sk, ex }; });
+const BYID = Object.fromEntries(WORDS.map(w => [w.id, w]));
+const PAGE = 50, SESSION = 20;
+const INTERVALS = [0, 1, 3, 7, 14]; // days per box; Viem in the last box = learned
+const today = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
+
+/* ---------- state ---------- */
+// st.w[id] = [status, box, due]  status: k = viem, h = váham, n = nové
+let st = { w: {}, t: 0, opts: { dir: "sk", mode: "cards" }, days: [] };
+let tab = "sort", session = null, sortDraft = {}, showSk = true, knownQuery = "", confirmReset = false;
+const LS = "tisicka-v1";
+try { const s = JSON.parse(localStorage.getItem(LS)); if (s && s.w) st = Object.assign(st, s); } catch (e) {}
+
+let db = null, docRef = null, saveTimer = null;
+function save() {
+  st.t = Date.now();
+  try { localStorage.setItem(LS, JSON.stringify(st)); } catch (e) {}
+  if (!docRef) return;
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    try { await docRef.set({ data: JSON.stringify(st), t: st.t }); setSync("Uložené vo vašom účte"); }
+    catch (e) { setSync("Nepodarilo sa uložiť do účtu, pokrok ostáva v prehliadači"); }
+  }, 1200);
+}
+function setSync(t) { document.getElementById("sync").textContent = t; }
+(async () => {
+  try {
+    if (!window.claude?.use) return;
+    db = await claude.use("db");
+    const user = await claude.use("user");
+    const id = user && await user.id();
+    if (!db || !id) return;
+    docRef = db.collection("data/users/" + id).doc("progress");
+    const snap = await docRef.get();
+    const d = snap.exists ? snap.data() : null;
+    if (d && d.data && (d.t || 0) > (st.t || 0)) {
+      st = Object.assign({ w: {}, opts: { dir: "sk", mode: "cards" }, days: [] }, JSON.parse(d.data));
+      try { localStorage.setItem(LS, JSON.stringify(st)); } catch (e) {}
+      if (!session) render();
+    } else if (Object.keys(st.w).length) { save(); }
+    setSync("Pokrok sa ukladá vo vašom účte");
+  } catch (e) { /* stay on browser storage */ }
+})();
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const SPEAK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+function speak(text) {
+  try {
+    const u = new SpeechSynthesisUtterance(text); u.lang = "en-GB"; u.rate = 0.9;
+    const v = speechSynthesis.getVoices().find(v => v.lang && v.lang.startsWith("en"));
+    if (v) u.voice = v;
+    speechSynthesis.cancel(); speechSynthesis.speak(u);
+  } catch (e) { toast("Tento prehliadač nevie čítať nahlas"); }
+}
+let toastT; function toast(t) { const el = $("#toast"); el.textContent = t; el.hidden = false; clearTimeout(toastT); toastT = setTimeout(() => el.hidden = true, 2200); }
+function counts() {
+  const c = { k: 0, h: 0, n: 0, u: 0, dueH: 0, dueN: 0 }, d = today();
+  for (const w of WORDS) {
+    const s = st.w[w.id];
+    if (!s) { c.u++; continue; }
+    c[s[0]]++;
+    if (s[0] === "h" && s[2] <= d) c.dueH++;
+    if (s[0] === "n" && s[2] <= d) c.dueN++;
+  }
+  return c;
+}
+function markDay() { const d = today(); if (!st.days.includes(d)) { st.days.push(d); st.days = st.days.slice(-60); } }
+function streak() { let n = 0, d = today(); if (!st.days.includes(d)) d--; while (st.days.includes(d)) { n++; d--; } return n; }
+function blank(ex, en) {
+  const re = new RegExp("\\b" + en.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+") + "\\w*", "i");
+  return re.test(ex) ? ex.replace(re, "_____") : null;
+}
+function norm(s) { return s.toLowerCase().replace(/[’']/g, "'").replace(/[^a-z' -]/g, "").replace(/^to /, "").replace(/\s+/g, " ").trim(); }
+function lev(a, b) {
+  const m = Array.from({ length: a.length + 1 }, (_, i) => [i]);
+  for (let j = 1; j <= b.length; j++) m[0][j] = j;
+  for (let i = 1; i <= a.length; i++) for (let j = 1; j <= b.length; j++)
+    m[i][j] = Math.min(m[i - 1][j] + 1, m[i][j - 1] + 1, m[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+  return m[a.length][b.length];
+}
+
+/* ---------- views ---------- */
+function render() {
+  document.querySelectorAll("nav.tabs button").forEach(b => b.setAttribute("aria-selected", String(b.dataset.tab === tab)));
+  const c = counts();
+  $("#hdrCount").textContent = c.k + " / " + WORDS.length + " viem";
+  const v = $("#view");
+  v.className = showSk ? "" : "hide-en";
+  v.innerHTML = tab === "sort" ? viewSort(c) : tab === "learn" ? (session ? viewCard() : viewLearn(c)) : viewStats(c);
+  if (tab === "learn" && session && session.mode === "write" && !session.checked) { const i = $("#typein"); if (i) i.focus(); }
+}
+
+function bar(c) {
+  const t = WORDS.length, p = x => (100 * x / t).toFixed(2) + "%";
+  return `<div class="bar" aria-hidden="true"><span class="k" style="width:${p(c.k)}"></span><span class="h" style="width:${p(c.h)}"></span><span class="n" style="width:${p(c.n)}"></span></div>
+  <div class="legend num"><span><i style="background:var(--know)"></i>Viem ${c.k}</span><span><i style="background:var(--unsure)"></i>Váham ${c.h}</span><span><i style="background:var(--newc)"></i>Nové ${c.n}</span><span><i style="background:var(--line)"></i>Neroztriedené ${c.u}</span></div>`;
+}
+
+function sortPage() { return WORDS.filter(w => !st.w[w.id]).slice(0, PAGE); }
+function viewSort(c) {
+  const page = sortPage();
+  if (!page.length) return `<div class="panel empty stack"><h2>Všetko je roztriedené</h2><p class="muted">Prejdi na Učenie a precvičuj slová, pri ktorých váhaš, a nové slová.</p><div><button class="btn primary" data-go="learn">Ísť na učenie</button></div></div>`;
+  const done = WORDS.length - c.u, pageNo = Math.floor(done / PAGE) + 1, pages = Math.ceil(WORDS.length / PAGE);
+  for (const w of page) if (!sortDraft[w.id]) sortDraft[w.id] = "n";
+  const nK = page.filter(w => sortDraft[w.id] === "k").length, nH = page.filter(w => sortDraft[w.id] === "h").length;
+  return `<div class="stack">
+    <div class="stack" style="gap:8px">
+      <div class="row spread"><h2>Strana ${pageNo} z ${pages}</h2><span class="muted small num">roztriedené ${done} z ${WORDS.length}</span></div>
+      ${bar(c)}
+    </div>
+    <p class="muted">Označ slová, ktoré <b style="color:var(--know)">vieš</b> naisto, a tie, pri ktorých <b style="color:var(--unsure)">váhaš</b>. Ostatné ostanú ako <b style="color:var(--newc)">nové</b>. Slová, ktoré vieš, sa ti už nebudú zobrazovať.</p>
+    <div class="row spread">
+      <div class="row"><button class="btn" data-all="k">Všetky viem</button><button class="btn ghost" data-all="n">Zrušiť označenie</button></div>
+      <button class="btn ghost" id="toggleSk">${showSk ? "Skryť angličtinu" : "Ukázať angličtinu"}</button>
+    </div>
+    <ul class="sortlist">${page.map(w => `<li>
+      <div class="w"><div class="sk">${esc(w.sk)}</div><div class="en"><span>${esc(w.en)}</span><button class="speak" data-say="${esc(w.en)}" aria-label="Prečítať ${esc(w.en)}">${SPEAK}</button></div></div>
+      <div class="seg" role="group" aria-label="${esc(w.en)}">${[["k", "Viem"], ["h", "Váham"], ["n", "Nové"]].map(([v, l]) =>
+        `<button data-id="${esc(w.id)}" data-v="${v}" class="${sortDraft[w.id] === v ? "on" : ""}" aria-pressed="${sortDraft[w.id] === v}">${l}</button>`).join("")}</div>
+    </li>`).join("")}</ul>
+    <div class="panel row spread savebar">
+      <span class="small num"><b style="color:var(--know)">${nK} viem</b> · <b style="color:var(--unsure)">${nH} váham</b> · <b style="color:var(--newc)">${page.length - nK - nH} nové</b></span>
+      <button class="btn primary" id="savePage">Uložiť, ďalších ${PAGE}</button>
+    </div>
+  </div>`;
+}
+
+function viewLearn(c) {
+  if (!c.h && !c.n) return `<div class="panel empty stack"><h2>Zatiaľ nie je čo učiť</h2><p class="muted">Najprv v Triedení označ, ktoré slová vieš. Tie, pri ktorých váhaš, a nové slová sa objavia tu.</p><div><button class="btn primary" data-go="sort">Začať triediť</button></div></div>`;
+  const o = st.opts;
+  return `<div class="stack">
+    <div class="row spread"><h2>Na dnes</h2><span class="muted small num">séria ${streak()} ${streak() === 1 ? "deň" : streak() < 5 && streak() > 1 ? "dni" : "dní"}</span></div>
+    <div class="decks">
+      <div class="panel deck h">
+        <span class="tag">Váham</span>
+        <div class="row" style="align-items:baseline"><span class="big num">${c.dueH}</span><span class="muted small num">na opakovanie z ${c.h}</span></div>
+        <p class="small muted">Kartičky: spomeň si a otoč.</p>
+        <button class="btn primary" data-start="h" ${c.dueH ? "" : "disabled"}>${c.dueH ? "Opakovať" : "Na dnes hotovo"}</button>
+      </div>
+      <div class="panel deck n">
+        <span class="tag">Nové</span>
+        <div class="row" style="align-items:baseline"><span class="big num">${c.dueN}</span><span class="muted small num">na opakovanie z ${c.n}</span></div>
+        <div class="opts" role="group" aria-label="Spôsob">
+          <button class="chip" data-mode="cards" aria-pressed="${o.mode === "cards"}">Kartičky</button>
+          <button class="chip" data-mode="write" aria-pressed="${o.mode === "write"}">Písanie</button>
+        </div>
+        <button class="btn primary" data-start="n" ${c.dueN ? "" : "disabled"}>${c.dueN ? "Učiť sa" : "Na dnes hotovo"}</button>
+      </div>
+    </div>
+    <div class="panel stack" style="gap:10px">
+      <span class="small muted">Smer pri kartičkách</span>
+      <div class="opts" role="group" aria-label="Smer">
+        <button class="chip" data-dir="sk" aria-pressed="${o.dir === "sk"}">Slovensky → anglicky</button>
+        <button class="chip" data-dir="en" aria-pressed="${o.dir === "en"}">Anglicky → slovensky</button>
+      </div>
+      <p class="small muted">Jedno kolo má najviac ${SESSION} slov. Keď slovo niekoľkokrát po sebe označíš „Viem“, presunie sa medzi naučené a už sa nezobrazí.</p>
+    </div>
+    ${(c.h || c.n) && !c.dueH && !c.dueN ? `<div class="panel row spread"><span class="small">Na dnes je všetko zopakované. Chceš si precvičiť aj tak?</span><button class="btn" data-extra="1">Precvičiť navyše</button></div>` : ""}
+  </div>`;
+}
+
+function startSession(deck, extra) {
+  const d = today();
+  let ids = WORDS.filter(w => { const s = st.w[w.id]; return s && (deck ? s[0] === deck : s[0] !== "k") && (extra || s[2] <= d); })
+    .sort((a, b) => st.w[a.id][2] - st.w[b.id][2] || Math.random() - 0.5).slice(0, SESSION).map(w => w.id);
+  for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
+  if (!ids.length) return;
+  const mode = deck === "n" && st.opts.mode === "write" ? "write" : "cards";
+  session = { deck, queue: ids, i: 0, total: ids.length, flipped: false, hint: false, checked: false, verdict: null, typed: "", mode, res: { k: 0, h: 0, n: 0 }, again: new Set() };
+  render();
+}
+
+function viewCard() {
+  const s = session;
+  if (s.i >= s.queue.length) {
+    return `<div class="panel empty stack"><h2>Kolo hotové</h2>
+      <p class="num"><b style="color:var(--know)">${s.res.k} viem</b> · <b style="color:var(--unsure)">${s.res.h} váham</b> · <b style="color:var(--newc)">${s.res.n} neviem</b></p>
+      <p class="muted small">Slová označené „Neviem“ alebo „Váham“ sa vrátia skôr.</p>
+      <div class="row" style="justify-content:center"><button class="btn primary" id="endSession">Späť na prehľad</button></div></div>`;
+  }
+  const w = BYID[s.queue[s.i]], rec = st.w[w.id], deckName = rec[0] === "h" ? "Váham" : "Nové";
+  const skFirst = s.mode === "write" || st.opts.dir === "sk";
+  const prompt = skFirst ? w.sk : w.en, answer = skFirst ? w.en : w.sk;
+  const hint = skFirst ? blank(w.ex, w.en) : null;
+  const head = `<div class="head" style="border-bottom-color:${rec[0] === "h" ? "var(--unsure)" : "var(--newc)"}"><span>${deckName}${s.mode === "write" ? " · písanie" : ""}</span><span class="num">${s.i + 1} / ${s.queue.length}</span><button class="btn ghost small" id="quit">Ukončiť</button></div>`;
+  const sayBtn = `<button class="speak" data-say="${esc(w.en)}" aria-label="Prečítať">${SPEAK}</button>`;
+  const knowLink = `<button class="btn ghost small" id="mastered">Toto viem naisto, už mi to neukazuj</button>`;
+
+  if (s.mode === "write") {
+    const face = !s.checked
+      ? `<div class="prompt">${esc(prompt)}</div>
+         ${s.hint && hint ? `<div class="ex">${esc(hint)}</div>` : ""}
+         <input class="typein" id="typein" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="napíš po anglicky" value="${esc(s.typed)}" aria-label="Anglické slovo">`
+      : `<div class="prompt">${esc(prompt)}</div>
+         <input class="typein ${s.verdict === "ok" ? "ok" : "bad"}" id="typein" value="${esc(s.typed)}" readonly aria-label="Tvoja odpoveď">
+         <div class="verdict ${s.verdict}">${s.verdict === "ok" ? "Správne!" : s.verdict === "near" ? "Skoro! Správne je:" : "Správne je:"}</div>
+         ${s.verdict !== "ok" ? `<div class="answer">${esc(w.en)}</div>` : ""}
+         <div class="row" style="justify-content:center">${sayBtn}<span class="ex">${esc(w.ex)}</span></div>`;
+    const actions = !s.checked
+      ? `<div class="row spread"><button class="btn ghost" id="hint" ${hint && !s.hint ? "" : "disabled"}>Nápoveda</button><button class="btn ghost" id="giveup">Neviem</button><button class="btn primary" id="check">Skontrolovať</button></div>`
+      : `<div class="row spread">${s.verdict !== "ok" ? `<button class="btn ghost" id="accept">Uznať ako správne</button>` : "<span></span>"}<button class="btn primary" id="next">Ďalej</button></div>${knowLink}`;
+    return `<div class="card">${head}<div class="face">${face}</div><div class="actions">${actions}</div></div>`;
+  }
+
+  const face = `<div class="prompt">${esc(prompt)}</div>
+    ${!skFirst ? `<div>${sayBtn}</div>` : ""}
+    ${!s.flipped && s.hint && hint ? `<div class="ex">${esc(hint)}</div>` : ""}
+    ${s.flipped ? `<div class="answer">${esc(answer)}</div><div class="row" style="justify-content:center">${skFirst ? sayBtn : ""}<span class="ex">${esc(w.ex)}</span></div>` : ""}`;
+  const actions = !s.flipped
+    ? `<div class="row spread"><button class="btn ghost" id="hint" ${hint && !s.hint ? "" : "disabled"}>Nápoveda</button><button class="btn primary" id="flip">Otočiť kartičku</button></div>`
+    : `<div class="rate"><button class="btn newc" data-rate="n">Neviem</button><button class="btn unsure" data-rate="h">Váham</button><button class="btn know" data-rate="k">Viem</button></div>${knowLink}`;
+  return `<div class="card">${head}<div class="face">${face}</div><div class="actions">${actions}</div></div>`;
+}
+
+function rate(r) {
+  const s = session, id = s.queue[s.i], rec = st.w[id], d = today();
+  if (r === "n") {
+    rec[1] = 0; rec[2] = d;
+    if (!s.again.has(id)) { s.again.add(id); s.queue.push(id); } // one more try at the end of this round
+  } else if (r === "h") {
+    rec[1] = Math.max(0, Math.min(rec[1], 1)); rec[2] = d + 1;
+  } else if (rec[1] >= INTERVALS.length - 1) {
+    rec[0] = "k";
+  } else {
+    rec[1]++; rec[2] = d + INTERVALS[rec[1]];
+  }
+  s.res[r]++; markDay(); save();
+  Object.assign(s, { i: s.i + 1, flipped: false, hint: false, checked: false, verdict: null, typed: "" });
+  render();
+}
+function checkTyped() {
+  const s = session, w = BYID[s.queue[s.i]], inp = $("#typein");
+  s.typed = inp.value;
+  if (!norm(s.typed)) { inp.focus(); return; }
+  const a = norm(s.typed), b = norm(w.en);
+  s.verdict = a === b ? "ok" : (b.length > 4 && lev(a, b) <= 1) ? "near" : "bad";
+  s.checked = true; render();
+  $("#next")?.focus();
+}
+
+function viewStats(c) {
+  const q = knownQuery.trim().toLowerCase();
+  const known = WORDS.filter(w => st.w[w.id]?.[0] === "k" && (!q || w.en.toLowerCase().includes(q) || w.sk.toLowerCase().includes(q)));
+  return `<div class="stack">
+    <div class="stats num">
+      <div class="stat k"><b>${c.k}</b><span class="small muted">viem</span></div>
+      <div class="stat h"><b>${c.h}</b><span class="small muted">váham</span></div>
+      <div class="stat n"><b>${c.n}</b><span class="small muted">nové</span></div>
+      <div class="stat"><b>${streak()}</b><span class="small muted">dní v rade</span></div>
+    </div>
+    ${bar(c)}
+    <div class="stack" style="gap:10px">
+      <h2>Slová, ktoré viem</h2>
+      <p class="small muted">Tieto sa ti nezobrazujú. Ak niektoré chceš predsa ešte precvičiť, vráť ho do učenia.</p>
+      <input class="search" id="kq" type="search" placeholder="Hľadať slovo" value="${esc(knownQuery)}" aria-label="Hľadať medzi naučenými slovami">
+      ${known.length ? `<ul class="known">${known.slice(0, 300).map(w => `<li><button class="speak" data-say="${esc(w.en)}" aria-label="Prečítať">${SPEAK}</button><div class="w"><b>${esc(w.en)}</b> <span class="muted">${esc(w.sk)}</span></div><button class="btn ghost small" data-back="${esc(w.id)}">Vrátiť do učenia</button></li>`).join("")}</ul>`
+        : `<p class="panel muted small">${q ? "Nič sa nenašlo." : "Zatiaľ tu nič nie je. Slová pribudnú, keď ich v Triedení označíš ako „Viem“."}</p>`}
+    </div>
+    <div class="panel row spread">
+      <span class="small muted">${confirmReset ? "Naozaj vymazať celý pokrok? Toto sa nedá vrátiť." : "Začať odznova"}</span>
+      ${confirmReset ? `<div class="row"><button class="btn" id="resetNo">Nie</button><button class="btn newc" id="resetYes">Áno, vymazať</button></div>` : `<button class="btn" id="reset">Vymazať pokrok</button>`}
+    </div>
+  </div>`;
+}
+
+/* ---------- events ---------- */
+document.addEventListener("click", e => {
+  const t = e.target.closest("button"); if (!t) return;
+  if (t.dataset.tab) { tab = t.dataset.tab; confirmReset = false; render(); return; }
+  if (t.dataset.go) { tab = t.dataset.go; render(); return; }
+  if (t.dataset.say) { speak(t.dataset.say); return; }
+  if (t.dataset.v && t.dataset.id) { sortDraft[t.dataset.id] = t.dataset.v; render(); return; }
+  if (t.dataset.all) { sortPage().forEach(w => sortDraft[w.id] = t.dataset.all); render(); return; }
+  if (t.id === "toggleSk") { showSk = !showSk; render(); return; }
+  if (t.id === "savePage") {
+    const page = sortPage(), d = today();
+    page.forEach(w => { const v = sortDraft[w.id] || "n"; st.w[w.id] = [v, 0, d]; delete sortDraft[w.id]; });
+    save(); render(); window.scrollTo({ top: 0 });
+    toast(sortPage().length ? "Uložené. Ďalšia strana je pripravená." : "Uložené. Všetko je roztriedené.");
+    return;
+  }
+  if (t.dataset.mode) { st.opts.mode = t.dataset.mode; save(); render(); return; }
+  if (t.dataset.dir) { st.opts.dir = t.dataset.dir; save(); render(); return; }
+  if (t.dataset.start) { startSession(t.dataset.start, false); return; }
+  if (t.dataset.extra) { startSession(null, true); return; }
+  if (t.id === "flip") { session.flipped = true; render(); return; }
+  if (t.id === "hint") { session.hint = true; if (session.mode === "write") session.typed = $("#typein").value; render(); return; }
+  if (t.dataset.rate) { rate(t.dataset.rate); return; }
+  if (t.id === "check") { checkTyped(); return; }
+  if (t.id === "giveup") { session.typed = $("#typein").value; session.verdict = "bad"; session.checked = true; render(); return; }
+  if (t.id === "accept") { session.verdict = "ok"; rate("k"); return; }
+  if (t.id === "next") { rate(session.verdict === "ok" ? "k" : session.verdict === "near" ? "h" : "n"); return; }
+  if (t.id === "mastered") {
+    const id = session.queue[session.i]; st.w[id][0] = "k"; session.res.k++;
+    session.queue = session.queue.filter((x, j) => j <= session.i || x !== id);
+    markDay(); save(); toast("Presunuté medzi slová, ktoré vieš");
+    Object.assign(session, { i: session.i + 1, flipped: false, hint: false, checked: false, verdict: null, typed: "" }); render(); return;
+  }
+  if (t.id === "quit" || t.id === "endSession") { session = null; render(); return; }
+  if (t.dataset.back) { st.w[t.dataset.back] = ["h", 0, today()]; save(); render(); toast("Vrátené medzi slová, pri ktorých váhaš"); return; }
+  if (t.id === "reset") { confirmReset = true; render(); return; }
+  if (t.id === "resetNo") { confirmReset = false; render(); return; }
+  if (t.id === "resetYes") { st.w = {}; st.days = []; confirmReset = false; sortDraft = {}; save(); tab = "sort"; render(); toast("Pokrok vymazaný"); return; }
+});
+document.addEventListener("keydown", e => {
+  if (!session || tab !== "learn") return;
+  if (e.target.id === "typein" && e.key === "Enter") { e.preventDefault(); session.checked ? $("#next")?.click() : checkTyped(); return; }
+  if (e.target.tagName === "INPUT") return;
+  if (session.mode === "cards") {
+    if ((e.key === " " || e.key === "Enter") && !session.flipped) { e.preventDefault(); $("#flip")?.click(); }
+    else if (session.flipped && ["1", "2", "3"].includes(e.key)) rate({ 1: "n", 2: "h", 3: "k" }[e.key]);
+  }
+});
+document.addEventListener("input", e => {
+  if (e.target.id === "kq") { knownQuery = e.target.value; const pos = e.target.selectionStart; render(); const i = $("#kq"); i.focus(); i.setSelectionRange(pos, pos); }
+});
+
+render();
+</script>
+
+</body>
+</html>

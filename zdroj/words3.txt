@@ -1,0 +1,221 @@
+good|dobrý|That's a good idea.
+bad|zlý|The weather is bad.
+new|nový|I have a new job.
+old|starý|This is an old house.
+young|mladý|She's very young.
+big|veľký|They have a big dog.
+small|malý|It's a small town.
+little|malý, trochu|I speak a little English.
+large|veľký|A large coffee, please.
+long|dlhý|It's a long story.
+short|krátky, nízky|The film is short.
+tall|vysoký (človek)|He's very tall.
+high|vysoký|The mountains are very high.
+low|nízky|Prices are low here.
+great|skvelý|That's great news!
+important|dôležitý|This is very important.
+different|iný, odlišný|We are very different.
+same|rovnaký|We have the same phone.
+easy|ľahký, jednoduchý|The test was easy.
+difficult|ťažký, náročný|English is not difficult.
+hard|tvrdý; ťažký|It's hard to say.
+simple|jednoduchý|It's a simple question.
+possible|možný|Is it possible?
+impossible|nemožný|Nothing is impossible.
+right|správny; pravý|You're right.
+wrong|nesprávny|That's the wrong answer.
+true|pravdivý|Is it true?
+real|skutočný|Is that a real diamond?
+sure|istý|Are you sure?
+ready|pripravený|Are you ready?
+free|voľný; zadarmo|Are you free tonight?
+busy|zaneprázdnený|I'm busy right now.
+full|plný|The bus is full.
+empty|prázdny|The fridge is empty.
+open|otvorený|Is the shop open?
+closed|zatvorený|The museum is closed.
+early|skorý, skoro|I'm an early bird.
+late|neskorý, neskoro|Sorry I'm late.
+fast|rýchly|He's a fast runner.
+quick|rýchly|Can I ask a quick question?
+slow|pomalý|The internet is slow.
+hot|horúci|It's very hot today.
+warm|teplý|It's warm outside.
+cold|studený|The water is cold.
+cool|chladný; super|That's cool!
+nice|pekný, milý|What a nice day!
+beautiful|krásny|What a beautiful view!
+pretty|pekný|She's very pretty.
+ugly|škaredý|What an ugly building!
+happy|šťastný|I'm so happy for you.
+sad|smutný|Why are you sad?
+angry|nahnevaný|Don't be angry.
+tired|unavený|I'm really tired.
+hungry|hladný|I'm hungry.
+thirsty|smädný|I'm thirsty.
+sick|chorý|I feel sick.
+ill|chorý|She's ill today.
+well|zdravý; dobre|I don't feel well.
+fine|v poriadku|I'm fine, thanks.
+okay|v poriadku|Is everything okay?
+afraid|vystrašený|I'm afraid of spiders.
+scared|vystrašený|Don't be scared.
+worried|ustarostený|I'm worried about him.
+excited|nadšený|I'm so excited!
+bored|znudený|I'm bored.
+boring|nudný|The film was boring.
+interesting|zaujímavý|That's interesting.
+funny|vtipný|He's really funny.
+strange|zvláštny|That's strange.
+surprised|prekvapený|I was surprised.
+glad|rád (potešený)|I'm glad you came.
+lucky|šťastný (mať šťastie)|You're lucky!
+proud|hrdý|I'm proud of you.
+kind|láskavý|That's very kind of you.
+friendly|priateľský|People here are friendly.
+polite|zdvorilý|Be polite.
+rude|nezdvorilý|Don't be rude.
+quiet|tichý|It's quiet here.
+loud|hlasný|The music is too loud.
+clean|čistý|The room is clean.
+dirty|špinavý|My shoes are dirty.
+cheap|lacný|This is cheap.
+expensive|drahý|It's too expensive.
+rich|bohatý|He's very rich.
+poor|chudobný|They were very poor.
+safe|bezpečný|Is it safe?
+dangerous|nebezpečný|It's dangerous to swim here.
+healthy|zdravý|Eat healthy food.
+strong|silný|He's very strong.
+weak|slabý|I feel weak.
+heavy|ťažký (váhou)|This box is heavy.
+light|ľahký; svetlý|This bag is light.
+dark|tmavý|It's getting dark.
+bright|jasný|It's a bright day.
+wet|mokrý|My shoes are wet.
+dry|suchý|Is the paint dry?
+soft|mäkký|The bed is soft.
+fresh|čerstvý|Fresh bread every morning.
+delicious|chutný|This is delicious!
+sweet|sladký|This cake is very sweet.
+favourite|obľúbený|What's your favourite food?
+famous|slávny|She's a famous actress.
+popular|populárny|This place is very popular.
+modern|moderný|It's a modern city.
+public|verejný|Use public transport.
+private|súkromný|This is a private beach.
+local|miestny|Try the local food.
+foreign|cudzí, zahraničný|Do you speak any foreign languages?
+international|medzinárodný|It's an international company.
+national|národný|Today is a national holiday.
+special|špeciálny|Today is a special day.
+normal|normálny|Is that normal?
+usual|obvyklý|I'll have the usual.
+common|bežný|It's a common mistake.
+whole|celý|I ate the whole pizza.
+main|hlavný|The main problem is money.
+certain|istý|I'm certain he'll come.
+clear|jasný|Is that clear?
+correct|správny|That's correct.
+available|dostupný|Is this seat available?
+necessary|nevyhnutný|Is it necessary?
+useful|užitočný|That's a useful tip.
+perfect|dokonalý|Perfect!
+terrible|hrozný|The weather was terrible.
+awful|strašný|I feel awful.
+wonderful|nádherný|We had a wonderful time.
+amazing|úžasný|The view is amazing.
+fantastic|fantastický|That's fantastic!
+excellent|vynikajúci|Excellent work!
+comfortable|pohodlný|These shoes are comfortable.
+careful|opatrný|Be careful!
+crazy|bláznivý|Are you crazy?
+serious|vážny|Are you serious?
+alone|sám|I live alone.
+together|spolu|Let's do it together.
+single|slobodný; jediný|Are you single?
+married|ženatý, vydatá|Are you married?
+alive|živý|Is the fish still alive?
+dead|mŕtvy; vybitý|My phone is dead.
+next|ďalší, budúci|See you next week.
+last|posledný, minulý|I saw him last week.
+first|prvý|This is my first time here.
+only|jediný; iba|It's the only way.
+own|vlastný|I have my own room.
+other|iný, ostatný|Where are the other students?
+another|ďalší, iný|Can I have another coffee?
+enough|dosť|Do we have enough time?
+few|málo (počítateľné)|I have a few friends here.
+many|veľa (počítateľné)|How many people are coming?
+much|veľa (nepočítateľné)|How much is it?
+more|viac|Can I have more?
+most|najviac, väčšina|Most people agree.
+less|menej|I need less sugar.
+all|všetci, všetko|All my friends are here.
+every|každý|I run every day.
+each|každý (jednotlivo)|Each room has a balcony.
+both|obaja|Both answers are correct.
+some|nejaký, trochu|Would you like some tea?
+any|nejaký (v otázke), žiadny|Do you have any questions?
+no|žiadny; nie|There's no milk.
+none|žiaden|None of them came.
+very|veľmi|It's very good.
+really|naozaj|I really like it.
+quite|celkom, dosť|It's quite cold.
+too|príliš; tiež|It's too hot. / Me too.
+also|tiež|I also speak German.
+just|práve; len|I just arrived.
+still|stále, ešte|Are you still here?
+already|už|I've already eaten.
+yet|ešte (nie); už (v otázke)|Have you finished yet?
+again|znova|Say it again.
+always|vždy|I always drink coffee in the morning.
+usually|zvyčajne|I usually walk to work.
+often|často|Do you come here often?
+sometimes|niekedy|Sometimes I work from home.
+never|nikdy|I never eat meat.
+ever|niekedy (vôbec)|Have you ever been to London?
+now|teraz|I'm busy now.
+then|potom; vtedy|And then what happened?
+soon|čoskoro|See you soon.
+later|neskôr|Talk to you later.
+before|predtým, pred|Wash your hands before eating.
+after|potom, po|Let's meet after work.
+ago|pred (časovo)|I moved here two years ago.
+recently|nedávno|I recently started a new job.
+finally|konečne|Finally, the weekend!
+suddenly|zrazu|Suddenly, the lights went out.
+here|tu|Come here.
+there|tam|I'll meet you there.
+everywhere|všade|I looked everywhere.
+somewhere|niekde|Let's go somewhere nice.
+nowhere|nikde|There's nowhere to park.
+anywhere|kdekoľvek|Sit anywhere you like.
+inside|vnútri|Let's go inside.
+outside|vonku|It's cold outside.
+upstairs|hore (na poschodí)|The bathroom is upstairs.
+downstairs|dole (na prízemí)|Breakfast is downstairs.
+away|preč|Go away!
+back|späť|I'll be back in five minutes.
+abroad|v zahraničí|I'd like to work abroad.
+near|blízko|Is there a bank near here?
+far|ďaleko|Is it far from here?
+almost|takmer|I'm almost ready.
+maybe|možno|Maybe tomorrow.
+perhaps|možno|Perhaps you're right.
+probably|pravdepodobne|It will probably rain.
+of course|samozrejme|Of course you can.
+exactly|presne|Exactly!
+especially|najmä|I love fruit, especially apples.
+actually|vlastne, v skutočnosti|Actually, I'm from Slovakia.
+anyway|aj tak, každopádne|Anyway, let's go.
+instead|namiesto toho|Let's have tea instead.
+together|spolu|We work together.
+quickly|rýchlo|Come quickly!
+slowly|pomaly|Please speak slowly.
+carefully|opatrne|Drive carefully.
+easily|ľahko|You can easily walk there.
+badly|zle|I slept badly.
+well|dobre|You speak English very well.
+hard|tvrdo, usilovne|She works hard.
+together with|spolu s|I live together with my sister.

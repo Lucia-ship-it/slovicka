@@ -1,0 +1,1016 @@
+be|byť|I want to be a teacher.
+have|mať|I have two brothers.
+do|robiť|What do you do on weekends?
+say|povedať|What did she say?
+go|ísť|Let's go home.
+get|dostať, získať|Did you get my message?
+make|vyrobiť, urobiť|I'll make some coffee.
+know|vedieť, poznať|I don't know the answer.
+think|myslieť|I think it's a good idea.
+take|vziať|Take your umbrella.
+see|vidieť|Can you see the sea from here?
+come|prísť|Come here, please.
+want|chcieť|I want a glass of water.
+look|pozerať sa|Look at this photo.
+use|použiť|Can I use your phone?
+find|nájsť|I can't find my keys.
+give|dať|Give me a minute.
+tell|povedať (niekomu)|Tell me the truth.
+work|pracovať|I work in an office.
+call|volať|I'll call you tomorrow.
+try|skúsiť|Try this cake.
+ask|pýtať sa|Can I ask you something?
+need|potrebovať|I need some help.
+feel|cítiť sa|I feel tired today.
+become|stať sa|She became a doctor.
+leave|odísť, nechať|I have to leave now.
+put|položiť|Put the book on the table.
+mean|znamenať|What does this word mean?
+keep|nechať si, udržať|Keep the change.
+let|nechať, dovoliť|Let me help you.
+begin|začať|The film begins at eight.
+seem|zdať sa|You seem happy.
+help|pomôcť|Can you help me?
+talk|rozprávať sa|We need to talk.
+turn|otočiť, odbočiť|Turn left at the corner.
+start|začať|When do you start work?
+show|ukázať|Show me your ticket.
+hear|počuť|I can't hear you.
+play|hrať|The kids are playing outside.
+run|bežať|I run every morning.
+move|hýbať sa, presťahovať sa|We moved to Bratislava last year.
+like|mať rád|I like chocolate.
+live|bývať, žiť|Where do you live?
+believe|veriť|I don't believe it.
+hold|držať|Hold my hand.
+bring|priniesť|Bring a jacket.
+happen|stať sa|What happened?
+write|písať|Write your name here.
+sit|sedieť|Please sit down.
+stand|stáť|Stand in line, please.
+lose|stratiť|I lost my wallet.
+pay|platiť|Can I pay by card?
+meet|stretnúť|Nice to meet you.
+include|zahŕňať|Breakfast is included.
+continue|pokračovať|Please continue.
+learn|učiť sa|I'm learning English.
+change|zmeniť|Plans have changed.
+lead|viesť|This road leads to the castle.
+understand|rozumieť|I understand.
+watch|sledovať|We watched a film last night.
+follow|nasledovať|Follow me.
+stop|zastaviť|Stop the car!
+create|vytvoriť|She created a new website.
+speak|hovoriť|Do you speak English?
+read|čítať|I read before bed.
+spend|minúť, stráviť|I spent too much money.
+grow|rásť, pestovať|Tomatoes grow fast in summer.
+open|otvoriť|Open the window, please.
+walk|kráčať, chodiť|We walked to the park.
+win|vyhrať|Our team won!
+offer|ponúknuť|Can I offer you a drink?
+remember|pamätať si|Do you remember me?
+love|milovať|I love this song.
+consider|zvážiť|Consider all options.
+appear|objaviť sa|A cat appeared at the door.
+buy|kúpiť|I need to buy milk.
+wait|čakať|Wait for me!
+serve|podávať, slúžiť|Dinner is served.
+die|zomrieť|The plant died.
+send|poslať|Send me the photos.
+expect|očakávať|I expect an answer soon.
+build|stavať|They built a new bridge.
+stay|zostať|Stay here.
+fall|padnúť|Be careful, don't fall.
+cut|strihať, rezať|Cut the bread, please.
+reach|dosiahnuť, dočiahnuť|I can't reach the top shelf.
+kill|zabiť|Smoking kills.
+remain|zostať|Please remain seated.
+suggest|navrhnúť|What do you suggest?
+raise|zdvihnúť|Raise your hand.
+pass|podať, prejsť|Pass the salt, please.
+sell|predávať|They sell fresh bread.
+require|vyžadovať|This job requires patience.
+report|hlásiť|Report the problem to the manager.
+decide|rozhodnúť sa|I can't decide.
+pull|ťahať|Pull the door.
+push|tlačiť|Push the button.
+break|zlomiť, rozbiť|I broke my phone.
+explain|vysvetliť|Can you explain that again?
+hope|dúfať|I hope you feel better.
+develop|vyvinúť, rozvíjať|We developed a new app.
+carry|niesť|Can you carry this bag?
+drive|šoférovať|Can you drive?
+eat|jesť|Let's eat something.
+drink|piť|Drink more water.
+sleep|spať|I slept badly.
+wake up|zobudiť sa|I wake up at seven.
+get up|vstať|I get up early.
+wash|umyť|Wash your hands.
+cook|variť|I like to cook.
+clean|upratať, čistiť|I cleaned the kitchen.
+close|zatvoriť|Close the door, please.
+finish|dokončiť|Did you finish your homework?
+choose|vybrať si|Choose one.
+agree|súhlasiť|I agree with you.
+forget|zabudnúť|Don't forget your passport.
+answer|odpovedať|Answer the question.
+travel|cestovať|I love to travel.
+visit|navštíviť|We visited my grandma.
+fly|letieť|We fly to London on Monday.
+arrive|prísť, doraziť|When does the train arrive?
+return|vrátiť sa, vrátiť|I'll return the book tomorrow.
+enjoy|užívať si|Enjoy your meal!
+prefer|uprednostňovať|I prefer tea to coffee.
+worry|robiť si starosti|Don't worry.
+miss|chýbať, zmeškať|I missed the bus.
+hate|nenávidieť|I hate waiting.
+check|skontrolovať|Check your email.
+fix|opraviť|Can you fix my bike?
+borrow|požičať si|Can I borrow your pen?
+lend|požičať (niekomu)|Can you lend me ten euros?
+order|objednať|I'd like to order a pizza.
+book|rezervovať|I booked a table for two.
+rent|prenajať|We rented a car.
+share|zdieľať, podeliť sa|Let's share the dessert.
+smile|usmievať sa|Smile for the photo!
+laugh|smiať sa|We laughed a lot.
+cry|plakať|The baby is crying.
+sing|spievať|She sings beautifully.
+dance|tancovať|Do you want to dance?
+swim|plávať|Can you swim?
+throw|hodiť|Throw me the ball.
+catch|chytiť|I caught a cold.
+fill|naplniť|Fill in this form.
+join|pridať sa|Can I join you?
+count|počítať|Count to ten.
+guess|hádať|Guess who I met today.
+hurry|ponáhľať sa|Hurry up!
+hide|skryť|Where did you hide the gift?
+invite|pozvať|I invited them to dinner.
+introduce|predstaviť|Let me introduce my friend.
+improve|zlepšiť|I want to improve my English.
+prepare|pripraviť|I need to prepare for the meeting.
+protect|chrániť|Sunscreen protects your skin.
+save|ušetriť, uložiť|Save the file.
+search|hľadať|I searched everywhere.
+compare|porovnať|Compare the prices.
+describe|opísať|Describe the man you saw.
+discuss|diskutovať|Let's discuss it later.
+mention|spomenúť|Did he mention me?
+notice|všimnúť si|I didn't notice the sign.
+plan|plánovať|We planned a trip.
+practise|precvičovať|Practise every day.
+promise|sľúbiť|I promise.
+recommend|odporučiť|Can you recommend a restaurant?
+refuse|odmietnuť|He refused to help.
+repeat|zopakovať|Could you repeat that?
+reply|odpovedať (na správu)|I'll reply to your email later.
+solve|vyriešiť|We solved the problem.
+steal|ukradnúť|Someone stole my bike.
+teach|učiť (niekoho)|She teaches maths.
+touch|dotknúť sa|Don't touch that!
+wear|mať oblečené|She's wearing a red dress.
+wish|priať si|I wish you luck.
+wonder|uvažovať, zaujímať sa|I wonder why he left.
+apologize|ospravedlniť sa|I apologize for being late.
+complain|sťažovať sa|He always complains.
+deliver|doručiť|They deliver food.
+exist|existovať|Does it really exist?
+fail|zlyhať, neuspieť|I failed the test.
+fit|sedieť, padnúť|These shoes don't fit.
+hang|zavesiť|Hang your coat here.
+hit|udrieť|The ball hit the window.
+hurt|bolieť, zraniť|My back hurts.
+imagine|predstaviť si|Imagine a world without war.
+kiss|bozkať|He kissed her goodbye.
+knock|klopať|Someone is knocking.
+lie|klamať; ležať|Don't lie to me.
+lift|zdvihnúť|Lift the box carefully.
+mind|vadiť|Do you mind if I sit here?
+own|vlastniť|They own a small shop.
+pack|zbaliť|Pack your suitcase.
+pick up|vyzdvihnúť|I'll pick you up at six.
+point|ukázať (prstom)|Don't point at people.
+pour|naliať|Pour me some wine.
+pray|modliť sa|They pray every Sunday.
+print|vytlačiť|Can you print this?
+receive|prijať, dostať|I received your letter.
+relax|oddýchnuť si|Sit down and relax.
+remove|odstrániť|Remove your shoes, please.
+ring|zvoniť|The phone is ringing.
+shout|kričať|Don't shout at me.
+shut|zavrieť|Shut the door.
+smell|voňať, cítiť|It smells good.
+taste|chutiť|This soup tastes great.
+sound|znieť|That sounds great.
+spell|hláskovať|How do you spell your name?
+support|podporovať|My family supports me.
+switch on|zapnúť|Switch on the light.
+switch off|vypnúť|Switch off your phone.
+tie|zaviazať|Tie your shoes.
+wake|zobudiť|Don't wake the baby.
+waste|plytvať|Don't waste time.
+win back|získať späť|She won back his trust.
+look for|hľadať|I'm looking for the station.
+look after|starať sa o|Can you look after my cat?
+find out|zistiť|I found out the truth.
+give up|vzdať sa|Never give up.
+turn on|zapnúť|Turn on the TV.
+turn off|vypnúť|Turn off the lights.
+put on|obliecť si|Put on your coat.
+take off|vyzliecť; vzlietnuť|The plane takes off at noon.
+go out|ísť von|Let's go out tonight.
+come back|vrátiť sa|Come back soon!
+sit down|sadnúť si|Please sit down.
+calm down|upokojiť sa|Calm down, everything is fine.
+set up|zriadiť, nastaviť|I set up a new account.
+run out of|minúť sa|We ran out of milk.
+get on|nastúpiť|Get on the bus.
+get off|vystúpiť|Get off at the next stop.
+fill in|vyplniť|Fill in your address.
+hang out|tráviť čas|We hang out on Fridays.
+grow up|vyrásť|I grew up in a small town.
+break down|pokaziť sa|Our car broke down.
+show up|objaviť sa, prísť|He didn't show up.
+work out|cvičiť; vyriešiť|I work out three times a week.
+throw away|vyhodiť|Throw away the old food.
+time|čas|I don't have time.
+person|osoba|She's a nice person.
+people|ľudia|There are many people here.
+year|rok|I'm thirty years old.
+day|deň|Have a nice day!
+week|týždeň|See you next week.
+month|mesiac|I'll be back in a month.
+hour|hodina|The trip takes an hour.
+minute|minúta|Wait a minute.
+second|sekunda|Just a second.
+morning|ráno|Good morning!
+afternoon|popoludnie|I'm free this afternoon.
+evening|večer|What are you doing this evening?
+night|noc|Good night!
+today|dnes|What's the date today?
+tomorrow|zajtra|See you tomorrow.
+yesterday|včera|I saw him yesterday.
+weekend|víkend|Have a good weekend!
+holiday|dovolenka, sviatok|We're on holiday.
+birthday|narodeniny|Happy birthday!
+way|cesta, spôsob|Is this the way to the station?
+thing|vec|I have a few things to do.
+man|muž|Who is that man?
+woman|žena|That woman is my aunt.
+child|dieťa|They have one child.
+children|deti|The children are at school.
+boy|chlapec|He's a clever boy.
+girl|dievča|The girl is reading.
+baby|bábätko|The baby is sleeping.
+friend|priateľ, kamarát|She's my best friend.
+family|rodina|I have a big family.
+mother|matka|My mother is a nurse.
+father|otec|My father works in a bank.
+parents|rodičia|My parents live in Košice.
+brother|brat|My brother is older than me.
+sister|sestra|My sister lives abroad.
+son|syn|Their son is five.
+daughter|dcéra|My daughter loves horses.
+husband|manžel|This is my husband, Peter.
+wife|manželka|His wife is a teacher.
+grandmother|stará mama|My grandmother bakes cakes.
+grandfather|starý otec|My grandfather was a farmer.
+aunt|teta|My aunt lives in Vienna.
+uncle|strýko, ujo|My uncle has a farm.
+cousin|bratranec, sesternica|My cousin is visiting.
+neighbour|sused|Our neighbour is very friendly.
+boyfriend|priateľ (partner)|Her boyfriend is from Spain.
+girlfriend|priateľka (partnerka)|His girlfriend is a singer.
+guest|hosť|We have guests tonight.
+name|meno|What's your name?
+age|vek|What age is your son?
+life|život|Life is short.
+world|svet|I want to travel the world.
+country|krajina|Which country are you from?
+city|mesto|Prague is a beautiful city.
+town|mestečko|I live in a small town.
+village|dedina|My parents live in a village.
+street|ulica|What street do you live on?
+road|cesta|The road is closed.
+house|dom|They bought a new house.
+home|domov|I'm going home.
+flat|byt|I live in a flat.
+room|izba|My room is small.
+kitchen|kuchyňa|Mum is in the kitchen.
+bathroom|kúpeľňa|Where is the bathroom?
+bedroom|spálňa|The flat has two bedrooms.
+living room|obývačka|We watch TV in the living room.
+toilet|toaleta|Where's the toilet?
+door|dvere|Close the door.
+window|okno|Open the window.
+wall|stena|There's a picture on the wall.
+floor|podlaha, poschodie|I live on the third floor.
+stairs|schody|Take the stairs.
+garden|záhrada|We have a small garden.
+table|stôl|Dinner is on the table.
+chair|stolička|Take a chair.
+bed|posteľ|I'm going to bed.
+sofa|gauč|The cat is on the sofa.
+key|kľúč|Where's my key?
+light|svetlo|Turn off the light.
+school|škola|My kids go to school.
+university|univerzita|She studies at university.
+class|trieda, hodina|I have a yoga class.
+lesson|lekcia|The lesson starts at nine.
+teacher|učiteľ|Our teacher is strict.
+student|študent|I'm a student.
+job|práca, zamestnanie|I love my job.
+office|kancelária|I'm at the office.
+company|firma|I work for a big company.
+boss|šéf|My boss is on holiday.
+colleague|kolega|My colleagues are nice.
+meeting|stretnutie, porada|I have a meeting at ten.
+business|podnikanie, obchod|He runs a small business.
+money|peniaze|I don't have much money.
+price|cena|What's the price?
+bill|účet|Can we have the bill, please?
+cash|hotovosť|Do you accept cash?
+card|karta|Can I pay by card?
+bank|banka|I need to go to the bank.
+shop|obchod|The shop opens at nine.
+supermarket|supermarket|I'll stop at the supermarket.
+market|trh|We buy vegetables at the market.
+restaurant|reštaurácia|Let's go to a restaurant.
+cafe|kaviareň|Let's meet at the cafe.
+bar|bar|We met in a bar.
+hotel|hotel|Our hotel is near the beach.
+hospital|nemocnica|She's in hospital.
+doctor|lekár|You should see a doctor.
+nurse|zdravotná sestra|The nurse was very kind.
+pharmacy|lekáreň|Is there a pharmacy near here?
+medicine|liek|Take this medicine twice a day.
+police|polícia|Call the police!
+church|kostol|There's an old church in the village.
+museum|múzeum|The museum is closed on Mondays.
+library|knižnica|I borrowed it from the library.
+park|park|Let's walk in the park.
+station|stanica|Where is the train station?
+airport|letisko|I'll take you to the airport.
+bus|autobus|I go to work by bus.
+train|vlak|The train is late.
+car|auto|I parked the car outside.
+bike|bicykel|I ride my bike to work.
+plane|lietadlo|The plane landed safely.
+taxi|taxík|Let's take a taxi.
+ticket|lístok|Two tickets, please.
+trip|výlet|How was your trip?
+journey|cesta (cestovanie)|Have a safe journey.
+passport|pas|Don't forget your passport.
+luggage|batožina|My luggage is lost.
+suitcase|kufor|My suitcase is heavy.
+map|mapa|Can you show me on the map?
+place|miesto|This is my favourite place.
+area|oblasť|Is this a safe area?
+corner|roh|The shop is on the corner.
+bridge|most|Cross the bridge.
+river|rieka|The river is very wide.
+lake|jazero|We swam in the lake.
+sea|more|I love the sea.
+beach|pláž|Let's go to the beach.
+mountain|hora|We climbed a mountain.
+hill|kopec|The house is on a hill.
+forest|les|We walked through the forest.
+tree|strom|There's a big tree in the garden.
+flower|kvet|What a beautiful flower!
+grass|tráva|Don't walk on the grass.
+sky|obloha|The sky is blue.
+sun|slnko|The sun is shining.
+moon|mesiac (na oblohe)|Look at the moon.
+star|hviezda|You can see stars tonight.
+weather|počasie|What's the weather like?
+rain|dážď|I love the sound of rain.
+snow|sneh|The kids played in the snow.
+wind|vietor|The wind is strong today.
+air|vzduch|I need some fresh air.
+water|voda|A glass of water, please.
+fire|oheň|Sit by the fire.
+animal|zviera|What's your favourite animal?
+dog|pes|I walk my dog every day.
+cat|mačka|My cat sleeps all day.
+bird|vták|A bird is singing.
+fish|ryba|I don't eat fish.
+horse|kôň|Can you ride a horse?
+food|jedlo|The food was delicious.
+breakfast|raňajky|I eat breakfast at seven.
+lunch|obed|Let's have lunch together.
+dinner|večera|What's for dinner?
+meal|jedlo (chod)|Enjoy your meal.
+bread|chlieb|I bought fresh bread.
+butter|maslo|Pass the butter, please.
+cheese|syr|I love cheese.
+egg|vajce|I had two eggs for breakfast.
+meat|mäso|I don't eat meat.
+chicken|kura|Chicken with rice, please.
+rice|ryža|Would you like rice or potatoes?
+potato|zemiak|Peel the potatoes.
+vegetable|zelenina|Eat more vegetables.
+fruit|ovocie|I eat fruit every day.
+apple|jablko|An apple a day keeps the doctor away.
+salad|šalát|I'll have a salad.
+soup|polievka|The soup is hot.
+cake|koláč, torta|I baked a cake.
+sugar|cukor|No sugar, thanks.
+salt|soľ|Add a little salt.
+milk|mlieko|Coffee with milk, please.
+coffee|káva|Do you want a coffee?
+tea|čaj|A cup of tea, please.
+juice|džús|Orange juice, please.
+beer|pivo|Two beers, please.
+wine|víno|Red or white wine?
+glass|pohár; sklo|Can I have a glass of water?
+cup|šálka|A cup of coffee.
+plate|tanier|Put it on a plate.
+bottle|fľaša|A bottle of water, please.
+menu|jedálny lístok|Can I see the menu?
+body|telo|Exercise is good for your body.
+head|hlava|I have a headache.
+face|tvár|Wash your face.
+eye|oko|She has blue eyes.
+ear|ucho|My ear hurts.
+nose|nos|Blow your nose.
+mouth|ústa|Open your mouth.
+tooth|zub|I broke a tooth.
+hair|vlasy|She has long hair.
+hand|ruka (dlaň)|Raise your hand.
+arm|ruka (paža)|I broke my arm.
+leg|noha|My legs are tired.
+foot|chodidlo|My foot hurts.
+back|chrbát|I have back pain.
+heart|srdce|My heart is beating fast.
+stomach|žalúdok, brucho|I have a stomach ache.
+health|zdravie|Health is more important than money.
+pain|bolesť|I'm in pain.
+cold|prechladnutie; zima|I've got a cold.
+clothes|oblečenie|I need new clothes.
+shirt|košeľa|He's wearing a white shirt.
+T-shirt|tričko|I bought a new T-shirt.
+trousers|nohavice|These trousers are too long.
+jeans|džínsy|I usually wear jeans.
+dress|šaty|What a lovely dress!
+skirt|sukňa|She's wearing a black skirt.
+jacket|bunda, sako|Take a jacket, it's cold.
+coat|kabát|Hang your coat here.
+shoes|topánky|I need new shoes.
+hat|klobúk, čiapka|Wear a hat in the sun.
+bag|taška|My bag is heavy.
+phone|telefón|My phone is dead.
+computer|počítač|My computer is slow.
+internet|internet|The internet is down.
+email|e-mail|I'll send you an email.
+message|správa|I got your message.
+photo|fotka|Can you take a photo of us?
+music|hudba|What music do you like?
+song|pieseň|I love this song.
+film|film|Let's watch a film.
+book|kniha|I'm reading a good book.
+newspaper|noviny|I read the newspaper every morning.
+news|správy|Did you hear the news?
+TV|televízia|What's on TV?
+game|hra|Let's play a game.
+sport|šport|What sports do you play?
+football|futbal|He plays football.
+party|večierok, oslava|Are you coming to the party?
+present|darček|Thank you for the present.
+problem|problém|No problem.
+question|otázka|Can I ask a question?
+answer|odpoveď|I don't know the answer.
+idea|nápad|Good idea!
+reason|dôvod|What's the reason?
+example|príklad|Can you give me an example?
+fact|fakt|That's a fact.
+mistake|chyba|Everyone makes mistakes.
+chance|šanca|Give me a chance.
+choice|voľba, výber|You have no choice.
+decision|rozhodnutie|It's your decision.
+plan|plán|What's the plan?
+rule|pravidlo|Those are the rules.
+story|príbeh|Tell me a story.
+word|slovo|What does this word mean?
+language|jazyk|How many languages do you speak?
+letter|list; písmeno|I wrote her a letter.
+number|číslo|What's your phone number?
+part|časť|This is the best part.
+end|koniec|See you at the end of the week.
+beginning|začiatok|Start at the beginning.
+side|strana|Which side are you on?
+top|vrch|Look at the top of the page.
+bottom|spodok|It's at the bottom of the bag.
+front|predná časť|Sit in the front.
+middle|stred|Stand in the middle.
+group|skupina|We travelled in a group.
+team|tím|Our team is great.
+list|zoznam|Make a shopping list.
+kind|druh|What kind of music do you like?
+size|veľkosť|What size are you?
+colour|farba|What's your favourite colour?
+shape|tvar|What shape is it?
+noise|hluk|Stop making noise.
+voice|hlas|She has a lovely voice.
+paper|papier|I need a piece of paper.
+pen|pero|Can I borrow your pen?
+box|krabica|Put it in the box.
+help|pomoc|Thanks for your help.
+love|láska|Love is all you need.
+fun|zábava|Have fun!
+luck|šťastie (náhoda)|Good luck!
+trouble|problémy, ťažkosti|Are you in trouble?
+danger|nebezpečenstvo|Danger! Keep out.
+accident|nehoda|There was an accident on the road.
+emergency|núdza, pohotovosť|Call 112 in an emergency.
+safety|bezpečnosť|Safety first.
+peace|mier, pokoj|I need some peace and quiet.
+war|vojna|The war ended in 1945.
+law|zákon|It's against the law.
+government|vláda|The government raised taxes.
+power|moc, elektrina|There's no power.
+energy|energia|I have no energy today.
+experience|skúsenosť|Do you have any experience?
+information|informácie|I need more information.
+opinion|názor|In my opinion, it's too expensive.
+advice|rada|Can you give me some advice?
+interest|záujem|Thanks for your interest.
+attention|pozornosť|Pay attention!
+difference|rozdiel|What's the difference?
+direction|smer|Which direction is the centre?
+distance|vzdialenosť|What's the distance to Vienna?
+space|priestor|There's no space in the car.
+date|dátum; rande|What's the date today?
+appointment|termín (u lekára)|I have a doctor's appointment.
+reservation|rezervácia|I have a reservation.
+queue|rad (ľudí)|There's a long queue.
+change|zmena; drobné|Keep the change.
+gift|dar|What a nice gift!
+smell|vôňa, pach|What's that smell?
+taste|chuť|I like the taste.
+feeling|pocit|I have a bad feeling.
+dream|sen|I had a strange dream.
+memory|spomienka, pamäť|I have a bad memory.
+habit|zvyk|It's a bad habit.
+hobby|koníček|What are your hobbies?
+skill|zručnosť|Cooking is a useful skill.
+goal|cieľ|What is your goal?
+success|úspech|Congratulations on your success!
+result|výsledok|What was the result?
+risk|riziko|It's not worth the risk.
+secret|tajomstvo|Can you keep a secret?
+truth|pravda|Tell me the truth.
+lie|lož|That's a lie!
+joke|vtip|Tell me a joke.
+surprise|prekvapenie|What a surprise!
+good|dobrý|That's a good idea.
+bad|zlý|The weather is bad.
+new|nový|I have a new job.
+old|starý|This is an old house.
+young|mladý|She's very young.
+big|veľký|They have a big dog.
+small|malý|It's a small town.
+little|malý, trochu|I speak a little English.
+large|veľký|A large coffee, please.
+long|dlhý|It's a long story.
+short|krátky, nízky|The film is short.
+tall|vysoký (človek)|He's very tall.
+high|vysoký|The mountains are very high.
+low|nízky|Prices are low here.
+great|skvelý|That's great news!
+important|dôležitý|This is very important.
+different|iný, odlišný|We are very different.
+same|rovnaký|We have the same phone.
+easy|ľahký, jednoduchý|The test was easy.
+difficult|ťažký, náročný|English is not difficult.
+hard|tvrdý; ťažký|It's hard to say.
+simple|jednoduchý|It's a simple question.
+possible|možný|Is it possible?
+impossible|nemožný|Nothing is impossible.
+right|správny; pravý|You're right.
+wrong|nesprávny|That's the wrong answer.
+true|pravdivý|Is it true?
+real|skutočný|Is that a real diamond?
+sure|istý|Are you sure?
+ready|pripravený|Are you ready?
+free|voľný; zadarmo|Are you free tonight?
+busy|zaneprázdnený|I'm busy right now.
+full|plný|The bus is full.
+empty|prázdny|The fridge is empty.
+open|otvorený|Is the shop open?
+closed|zatvorený|The museum is closed.
+early|skorý, skoro|I'm an early bird.
+late|neskorý, neskoro|Sorry I'm late.
+fast|rýchly|He's a fast runner.
+quick|rýchly|Can I ask a quick question?
+slow|pomalý|The internet is slow.
+hot|horúci|It's very hot today.
+warm|teplý|It's warm outside.
+cold|studený|The water is cold.
+cool|chladný; super|That's cool!
+nice|pekný, milý|What a nice day!
+beautiful|krásny|What a beautiful view!
+pretty|pekný|She's very pretty.
+ugly|škaredý|What an ugly building!
+happy|šťastný|I'm so happy for you.
+sad|smutný|Why are you sad?
+angry|nahnevaný|Don't be angry.
+tired|unavený|I'm really tired.
+hungry|hladný|I'm hungry.
+thirsty|smädný|I'm thirsty.
+sick|chorý|I feel sick.
+ill|chorý|She's ill today.
+well|zdravý; dobre|I don't feel well.
+fine|v poriadku|I'm fine, thanks.
+okay|v poriadku|Is everything okay?
+afraid|vystrašený|I'm afraid of spiders.
+scared|vystrašený|Don't be scared.
+worried|ustarostený|I'm worried about him.
+excited|nadšený|I'm so excited!
+bored|znudený|I'm bored.
+boring|nudný|The film was boring.
+interesting|zaujímavý|That's interesting.
+funny|vtipný|He's really funny.
+strange|zvláštny|That's strange.
+surprised|prekvapený|I was surprised.
+glad|rád (potešený)|I'm glad you came.
+lucky|šťastný (mať šťastie)|You're lucky!
+proud|hrdý|I'm proud of you.
+kind|láskavý|That's very kind of you.
+friendly|priateľský|People here are friendly.
+polite|zdvorilý|Be polite.
+rude|nezdvorilý|Don't be rude.
+quiet|tichý|It's quiet here.
+loud|hlasný|The music is too loud.
+clean|čistý|The room is clean.
+dirty|špinavý|My shoes are dirty.
+cheap|lacný|This is cheap.
+expensive|drahý|It's too expensive.
+rich|bohatý|He's very rich.
+poor|chudobný|They were very poor.
+safe|bezpečný|Is it safe?
+dangerous|nebezpečný|It's dangerous to swim here.
+healthy|zdravý|Eat healthy food.
+strong|silný|He's very strong.
+weak|slabý|I feel weak.
+heavy|ťažký (váhou)|This box is heavy.
+light|ľahký; svetlý|This bag is light.
+dark|tmavý|It's getting dark.
+bright|jasný|It's a bright day.
+wet|mokrý|My shoes are wet.
+dry|suchý|Is the paint dry?
+soft|mäkký|The bed is soft.
+fresh|čerstvý|Fresh bread every morning.
+delicious|chutný|This is delicious!
+sweet|sladký|This cake is very sweet.
+favourite|obľúbený|What's your favourite food?
+famous|slávny|She's a famous actress.
+popular|populárny|This place is very popular.
+modern|moderný|It's a modern city.
+public|verejný|Use public transport.
+private|súkromný|This is a private beach.
+local|miestny|Try the local food.
+foreign|cudzí, zahraničný|Do you speak any foreign languages?
+international|medzinárodný|It's an international company.
+national|národný|Today is a national holiday.
+special|špeciálny|Today is a special day.
+normal|normálny|Is that normal?
+usual|obvyklý|I'll have the usual.
+common|bežný|It's a common mistake.
+whole|celý|I ate the whole pizza.
+main|hlavný|The main problem is money.
+certain|istý|I'm certain he'll come.
+clear|jasný|Is that clear?
+correct|správny|That's correct.
+available|dostupný|Is this seat available?
+necessary|nevyhnutný|Is it necessary?
+useful|užitočný|That's a useful tip.
+perfect|dokonalý|Perfect!
+terrible|hrozný|The weather was terrible.
+awful|strašný|I feel awful.
+wonderful|nádherný|We had a wonderful time.
+amazing|úžasný|The view is amazing.
+fantastic|fantastický|That's fantastic!
+excellent|vynikajúci|Excellent work!
+comfortable|pohodlný|These shoes are comfortable.
+careful|opatrný|Be careful!
+crazy|bláznivý|Are you crazy?
+serious|vážny|Are you serious?
+alone|sám|I live alone.
+together|spolu|Let's do it together.
+single|slobodný; jediný|Are you single?
+married|ženatý, vydatá|Are you married?
+alive|živý|Is the fish still alive?
+dead|mŕtvy; vybitý|My phone is dead.
+next|ďalší, budúci|See you next week.
+last|posledný, minulý|I saw him last week.
+first|prvý|This is my first time here.
+only|jediný; iba|It's the only way.
+own|vlastný|I have my own room.
+other|iný, ostatný|Where are the other students?
+another|ďalší, iný|Can I have another coffee?
+enough|dosť|Do we have enough time?
+few|málo (počítateľné)|I have a few friends here.
+many|veľa (počítateľné)|How many people are coming?
+much|veľa (nepočítateľné)|How much is it?
+more|viac|Can I have more?
+most|najviac, väčšina|Most people agree.
+less|menej|I need less sugar.
+all|všetci, všetko|All my friends are here.
+every|každý|I run every day.
+each|každý (jednotlivo)|Each room has a balcony.
+both|obaja|Both answers are correct.
+some|nejaký, trochu|Would you like some tea?
+any|nejaký (v otázke), žiadny|Do you have any questions?
+no|žiadny; nie|There's no milk.
+none|žiaden|None of them came.
+very|veľmi|It's very good.
+really|naozaj|I really like it.
+quite|celkom, dosť|It's quite cold.
+too|príliš; tiež|It's too hot. / Me too.
+also|tiež|I also speak German.
+just|práve; len|I just arrived.
+still|stále, ešte|Are you still here?
+already|už|I've already eaten.
+yet|ešte (nie); už (v otázke)|Have you finished yet?
+again|znova|Say it again.
+always|vždy|I always drink coffee in the morning.
+usually|zvyčajne|I usually walk to work.
+often|často|Do you come here often?
+sometimes|niekedy|Sometimes I work from home.
+never|nikdy|I never eat meat.
+ever|niekedy (vôbec)|Have you ever been to London?
+now|teraz|I'm busy now.
+then|potom; vtedy|And then what happened?
+soon|čoskoro|See you soon.
+later|neskôr|Talk to you later.
+before|predtým, pred|Wash your hands before eating.
+after|potom, po|Let's meet after work.
+ago|pred (časovo)|I moved here two years ago.
+recently|nedávno|I recently started a new job.
+finally|konečne|Finally, the weekend!
+suddenly|zrazu|Suddenly, the lights went out.
+here|tu|Come here.
+there|tam|I'll meet you there.
+everywhere|všade|I looked everywhere.
+somewhere|niekde|Let's go somewhere nice.
+nowhere|nikde|There's nowhere to park.
+anywhere|kdekoľvek|Sit anywhere you like.
+inside|vnútri|Let's go inside.
+outside|vonku|It's cold outside.
+upstairs|hore (na poschodí)|The bathroom is upstairs.
+downstairs|dole (na prízemí)|Breakfast is downstairs.
+away|preč|Go away!
+back|späť|I'll be back in five minutes.
+abroad|v zahraničí|I'd like to work abroad.
+near|blízko|Is there a bank near here?
+far|ďaleko|Is it far from here?
+almost|takmer|I'm almost ready.
+maybe|možno|Maybe tomorrow.
+perhaps|možno|Perhaps you're right.
+probably|pravdepodobne|It will probably rain.
+of course|samozrejme|Of course you can.
+exactly|presne|Exactly!
+especially|najmä|I love fruit, especially apples.
+actually|vlastne, v skutočnosti|Actually, I'm from Slovakia.
+anyway|aj tak, každopádne|Anyway, let's go.
+instead|namiesto toho|Let's have tea instead.
+quickly|rýchlo|Come quickly!
+slowly|pomaly|Please speak slowly.
+carefully|opatrne|Drive carefully.
+easily|ľahko|You can easily walk there.
+badly|zle|I slept badly.
+well|dobre|You speak English very well.
+hard|tvrdo, usilovne|She works hard.
+together with|spolu s|I live together with my sister.
+what|čo|What's this?
+who|kto|Who is that?
+where|kde|Where are you?
+when|kedy|When does it start?
+why|prečo|Why are you late?
+how|ako|How are you?
+which|ktorý|Which one do you want?
+whose|čí|Whose bag is this?
+how much|koľko (nepočítateľné)|How much does it cost?
+how many|koľko (počítateľné)|How many children do you have?
+how long|ako dlho|How long does it take?
+how often|ako často|How often do you exercise?
+and|a|Tea and coffee.
+but|ale|It's small but nice.
+or|alebo|Tea or coffee?
+because|pretože|I'm late because of the traffic.
+so|takže; tak|It was raining, so we stayed home.
+if|ak, keby|If you want, we can go.
+although|hoci|Although it was late, we went out.
+unless|pokiaľ nie|I'll come unless it rains.
+while|zatiaľ čo|I read while she cooked.
+until|až kým, do|Wait until I come back.
+since|odkedy|I've lived here since 2015.
+than|ako (pri porovnaní)|She's taller than me.
+like|ako (podobne)|It looks like rain.
+about|o; približne|What's the film about?
+with|s|Come with me.
+without|bez|Coffee without sugar.
+for|pre; na|This is for you.
+from|z, od|I'm from Slovakia.
+to|do, k|I'm going to the shop.
+in|v|I live in Žilina.
+on|na|The keys are on the table.
+at|o (čase); pri|See you at six.
+under|pod|The cat is under the bed.
+over|nad; cez|The plane flew over the city.
+between|medzi|The bank is between the cafe and the hotel.
+behind|za|The garden is behind the house.
+in front of|pred|I'll wait in front of the cinema.
+next to|vedľa|Sit next to me.
+opposite|oproti|The pharmacy is opposite the bank.
+around|okolo|Let's walk around the lake.
+through|cez|We drove through the tunnel.
+into|do (dovnútra)|Get into the car.
+out of|von z|Get out of here!
+across|naprieč, cez|Walk across the street.
+along|pozdĺž|Walk along the river.
+during|počas|Don't talk during the film.
+against|proti|I'm against the idea.
+except|okrem|Everyone came except Tom.
+per|za, na (jednotku)|It costs ten euros per person.
+yes|áno|Yes, please.
+please|prosím|Please sit down.
+thank you|ďakujem|Thank you very much.
+thanks|vďaka|Thanks for coming.
+sorry|prepáč, ľutujem|Sorry, I didn't hear you.
+excuse me|prepáčte (oslovenie)|Excuse me, where is the station?
+hello|ahoj, dobrý deň|Hello, how are you?
+goodbye|dovidenia|Goodbye, see you soon.
+welcome|vitaj|Welcome to Slovakia!
+cheers|na zdravie; vďaka|Cheers!
+congratulations|gratulujem|Congratulations on your new job!
+bless you|na zdravie (po kýchnutí)|Bless you!
+never mind|nevadí|Never mind, it's not important.
+no problem|žiadny problém|No problem, I can do it.
+you're welcome|nie je za čo|You're welcome.
+see you|uvidíme sa|See you later!
+take care|maj sa, daj na seba pozor|Take care!
+I'm not sure|nie som si istý|I'm not sure, let me check.
+it depends|záleží na tom|It depends on the weather.
+by the way|mimochodom|By the way, I saw Peter yesterday.
+at least|aspoň|At least we tried.
+in fact|v skutočnosti|In fact, I've never been there.
+for example|napríklad|I like fruit, for example bananas.
+at the moment|momentálne|I'm busy at the moment.
+on time|načas|The train was on time.
+in time|včas|We arrived just in time.
+as soon as possible|čo najskôr|Call me as soon as possible.
+one|jeden|One coffee, please.
+two|dva|Two tickets, please.
+three|tri|I have three cats.
+ten|desať|It takes ten minutes.
+twenty|dvadsať|I'm twenty-five.
+hundred|sto|A hundred euros.
+thousand|tisíc|It costs a thousand euros.
+million|milión|A million people live here.
+half|polovica|Half an hour.
+quarter|štvrť|It's a quarter past five.
+double|dvojitý|A double room, please.
+Monday|pondelok|See you on Monday.
+Tuesday|utorok|The shop is closed on Tuesday.
+Wednesday|streda|I have English on Wednesday.
+Thursday|štvrtok|Let's meet on Thursday.
+Friday|piatok|Thank God it's Friday!
+Saturday|sobota|I sleep late on Saturday.
+Sunday|nedeľa|We visit my parents on Sunday.
+January|január|My birthday is in January.
+spring|jar|Flowers bloom in spring.
+summer|leto|We go to the sea in summer.
+autumn|jeseň|Leaves fall in autumn.
+winter|zima (obdobie)|It snows in winter.
+season|ročné obdobie|What's your favourite season?
+past|minulosť|Forget the past.
+future|budúcnosť|What are your plans for the future?
+moment|chvíľa|Wait a moment.
+century|storočie|The castle is from the 14th century.
+clock|hodiny (nástenné)|The clock is fast.
+watch|hodinky|What a nice watch!
+umbrella|dáždnik|Take an umbrella.
+wallet|peňaženka|I lost my wallet.
+glasses|okuliare|I need my glasses to read.
+towel|uterák|Can I have a clean towel?
+soap|mydlo|There's no soap.
+fridge|chladnička|Put the milk in the fridge.
+oven|rúra|The cake is in the oven.
+knife|nôž|Pass me the knife.
+fork|vidlička|I need a fork.
+spoon|lyžica|A spoon, please.
+rubbish|odpadky|Take out the rubbish.
+mirror|zrkadlo|Look in the mirror.
+picture|obrázok|Draw a picture.
+present|súčasnosť; darček|Live in the present.
+address|adresa|What's your address?
+neighbourhood|štvrť, okolie|It's a quiet neighbourhood.
+centre|centrum|How do I get to the centre?
+building|budova|It's the tallest building in town.
+traffic|premávka|The traffic is terrible.
+traffic lights|semafor|Turn left at the traffic lights.
+parking|parkovanie|Is there parking here?
+petrol|benzín|We need petrol.
+stop|zastávka|Where's the bus stop?
+entrance|vchod|Meet me at the entrance.
+exit|východ|Where's the exit?
+lift|výťah|Take the lift to the fifth floor.
+reception|recepcia|Ask at reception.
+receipt|bločik, potvrdenka|Can I have a receipt?
+discount|zľava|Is there a student discount?
+sale|výpredaj|The shoes were on sale.
+customer|zákazník|The customer is always right.
+service|služba, obsluha|The service was excellent.
+tip|prepitné; tip|Should we leave a tip?
+cinema|kino|Let's go to the cinema.
+theatre|divadlo|We went to the theatre.
+concert|koncert|The concert was amazing.
+holiday|voľno|I'm taking a week's holiday.
+salary|plat|The salary is good.
+interview|pohovor|I have a job interview tomorrow.
+career|kariéra|She has a great career.
+project|projekt|We're working on a new project.
+task|úloha|I have many tasks today.
+deadline|termín (odovzdania)|The deadline is Friday.
+email address|e-mailová adresa|What's your email address?
+password|heslo|I forgot my password.
+screen|obrazovka|The screen is broken.
+battery|batéria|My battery is low.
+charger|nabíjačka|Can I borrow your charger?
+app|aplikácia|Download the app.
+website|webová stránka|Check our website.
+video|video|Watch this video.
+conversation|rozhovor|We had a long conversation.
+relationship|vzťah|They're in a relationship.
+wedding|svadba|We're going to a wedding.
+character|povaha; postava|He has a strong character.
+culture|kultúra|I love Japanese culture.
+education|vzdelanie|Education is important.
+environment|životné prostredie|Protect the environment.
+nature|príroda|I love nature.
+society|spoločnosť|We live in a modern society.
+situation|situácia|It's a difficult situation.
+condition|stav; podmienka|The car is in good condition.
+quality|kvalita|The quality is excellent.
+amount|množstvo|A small amount of sugar.
+level|úroveň|What's your level of English?
+piece|kúsok|A piece of cake, please.
+pair|pár|A pair of shoes.
+couple|pár (dvojica)|They're a lovely couple.
+bit|kúsok, trochu|I'm a bit tired.
+lot|veľa|Thanks a lot!
+whole|celok|The whole family came.
+reach|dosah|Keep out of reach of children.
+understand|chápať|I understand how you feel.
+mean|myslieť (vážne)|I didn't mean it.
+afford|dovoliť si (finančne)|I can't afford a new car.
+allow|dovoliť|Smoking is not allowed.
+argue|hádať sa|They argue all the time.
+attack|zaútočiť|The dog attacked him.
+avoid|vyhnúť sa|Avoid the city centre at rush hour.
+bake|piecť|I'll bake a cake.
+celebrate|oslavovať|Let's celebrate!
+cancel|zrušiť|The flight was cancelled.
+cause|spôsobiť|The storm caused a lot of damage.
+climb|liezť, stúpať|We climbed the hill.
+cross|prejsť (cez)|Cross the road carefully.
+depend|závisieť|It depends on you.
+download|stiahnuť|Download the file.
+draw|kresliť|My son loves to draw.
+earn|zarobiť|How much do you earn?
+enter|vstúpiť|Please enter.
+exercise|cvičiť|I exercise every morning.
+feed|kŕmiť|Feed the cat, please.
+fight|bojovať, biť sa|Stop fighting!
+fold|zložiť, poskladať|Fold the towels.
+forgive|odpustiť|Please forgive me.
+greet|pozdraviť|He greeted us at the door.
+happen to|náhodou|Do you happen to know her?
+keep in touch|byť v kontakte|Let's keep in touch.
+land|pristáť|The plane landed on time.
+marry|vziať si|Will you marry me?
+measure|merať|Measure the room.
+mix|zmiešať|Mix the flour and the eggs.
+obey|poslúchať|Obey the rules.
+paint|maľovať|We painted the kitchen.
+park|zaparkovať|Where can I park?
+pronounce|vysloviť|How do you pronounce this word?
+realize|uvedomiť si|I didn't realize it was so late.
+recognize|spoznať|I didn't recognize you!
+rest|oddychovať|You should rest.
+ride|jazdiť (na bicykli, koni)|I ride my bike to work.
+shake|triasť, potriasť|Shake hands.
+shop|nakupovať|I like to shop online.
+sign|podpísať|Sign here, please.
+smoke|fajčiť|Do you smoke?
+spill|rozliať|I spilled my coffee.
+study|študovať|I study medicine.
+suppose|predpokladať|I suppose you're right.
+translate|preložiť|Can you translate this?
+upload|nahrať|Upload your photo.
+vote|voliť, hlasovať|Did you vote?
+weigh|vážiť|How much do you weigh?
+whisper|šepkať|Don't whisper.
