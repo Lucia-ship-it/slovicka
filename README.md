@@ -12,7 +12,8 @@ Aplikácia na učenie 1000 základných anglických slov.
 - `index.html` je hotová stránka. Vzniká automaticky, neupravuj ju ručne.
 - `zdroj/all.txt` je zoznam slov, jedno na riadok v tvare `anglicky|slovensky|vzorová veta`.
 - `zdroj/template.html` je vzhľad a logika aplikácie.
-- `zdroj/build.py` poskladá `index.html` zo zoznamu slov a šablóny.
+- `zdroj/build.py` poskladá `index.html` zo zoznamu slov a šablóny a vytvorí `version.json`.
+- `version.json` slúži na automatickú kontrolu novej verzie: aplikácia pri otvorení zistí, či je na GitHube novšia verzia, a sama sa obnoví (počas kola len ukáže tlačidlo Obnoviť).
 
 ## Pridanie slovíčok
 

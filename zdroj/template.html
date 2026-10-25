@@ -157,6 +157,7 @@ button.stat[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 
 .stat b { display: block; font-family: var(--font-display); font-size: 1.6rem; line-height: 1.1; }
 .stat.k b { color: var(--know); } .stat.h b { color: var(--unsure); } .stat.n b { color: var(--newc); }
 .empty { text-align: center; padding: 28px 16px; }
+.update { position: fixed; left: 16px; right: 16px; top: calc(12px + env(safe-area-inset-top, 0px)); z-index: 20; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 16px; background: var(--fg); color: var(--bg); border-radius: 12px; font-weight: 600; max-width: 688px; margin-inline: auto; }
 .toast { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(96px + env(safe-area-inset-bottom, 0px)); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 10px; font-weight: 600; font-size: 0.9rem; max-width: calc(100% - 32px); }
 @media (prefers-reduced-motion: no-preference) { .card { animation: pop .18s ease-out; } @keyframes pop { from { transform: translateY(4px); opacity: .6; } } }
 </style>
@@ -173,9 +174,11 @@ button.stat[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 
   </nav>
   <main id="view"></main>
 </div>
+<div class="update" id="update" hidden><span>Je dostupná nová verzia.</span><button class="btn primary" id="reloadNow">Obnoviť</button></div>
 <div class="toast" id="toast" hidden></div>
 
 <script>
+const VERSION = "/*VERSION*/";
 const RAW = /*WORDS*/;
 const WORDS = RAW.trim().split("\n").map(l => { const [en, sk, ex] = l.split("|"); return { id: en + "|" + sk, en, sk, ex }; });
 const BYID = Object.fromEntries(WORDS.map(w => [w.id, w]));
@@ -507,6 +510,7 @@ document.addEventListener("click", e => {
     markDay(); save(); toast("Presunuté medzi slová, ktoré vieš");
     Object.assign(session, { i: session.i + 1, flipped: false, hint: false, checked: false, verdict: null, typed: "" }); render(); return;
   }
+  if (t.id === "reloadNow") { location.replace(location.pathname + "?v=" + (window.newVersion || Date.now())); return; }
   if (t.id === "quit" || t.id === "endSession") { session = null; render(); return; }
   if (t.dataset.back) { st.w[t.dataset.back] = ["h", 0, today()]; save(); render(); toast("Vrátené medzi slová, pri ktorých váhaš"); return; }
   if (t.id === "reset") { confirmReset = true; render(); return; }
@@ -527,4 +531,21 @@ document.addEventListener("input", e => {
 });
 
 render();
+
+/* ---------- automatická kontrola novej verzie ---------- */
+async function checkUpdate() {
+  if (!/^[0-9a-f]{8,}$/.test(VERSION)) return;            // lokálny náhľad bez verzie
+  try {
+    const r = await fetch("version.json?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return;
+    const v = (await r.json()).v;
+    if (!v || v === VERSION) return;
+    window.newVersion = v;
+    const already = location.search === "?v=" + v;          // po obnovení stále stará verzia: len upozorni
+    if (session || already) $("#update").hidden = false;     // počas kola neprerušuj
+    else location.replace(location.pathname + "?v=" + v);
+  } catch (e) {}
+}
+checkUpdate();
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") checkUpdate(); });
 </script>
