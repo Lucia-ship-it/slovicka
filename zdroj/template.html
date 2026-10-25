@@ -151,7 +151,9 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 .known .w { flex: 1; min-width: 0; }
 .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
 @media (max-width: 520px) { .stats { grid-template-columns: repeat(2, 1fr); } }
-.stat { padding: 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); }
+.stat { padding: 12px; border-radius: 10px; background: var(--surface); border: 1px solid var(--line); text-align: left; font: inherit; color: inherit; }
+button.stat { cursor: pointer; }
+button.stat[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .stat b { display: block; font-family: var(--font-display); font-size: 1.6rem; line-height: 1.1; }
 .stat.k b { color: var(--know); } .stat.h b { color: var(--unsure); } .stat.n b { color: var(--newc); }
 .empty { text-align: center; padding: 28px 16px; }
@@ -177,14 +179,14 @@ nav.tabs button[aria-selected="true"] { background: var(--accent); color: var(--
 const RAW = /*WORDS*/;
 const WORDS = RAW.trim().split("\n").map(l => { const [en, sk, ex] = l.split("|"); return { id: en + "|" + sk, en, sk, ex }; });
 const BYID = Object.fromEntries(WORDS.map(w => [w.id, w]));
-const PAGE = 50, SESSION = 20, WRITE_MIN = 20;
+const PAGE = 50, SESSION = 20, WRITE_MIN = 20, WRITE_MAX = 15;
 const INTERVALS = [0, 1, 3, 7, 14]; // days per box; Viem in the last box = learned
 const today = () => Math.floor((Date.now() - new Date().getTimezoneOffset() * 60000) / 86400000);
 
 /* ---------- state ---------- */
 // st.w[id] = [status, box, due]  status: k = viem, h = váham, n = nové
 let st = { w: {}, t: 0, opts: { dir: "sk", mode: "cards" }, days: [] };
-let tab = "sort", session = null, sortDraft = {}, showSk = true, knownQuery = "", confirmReset = false;
+let tab = "sort", session = null, sortDraft = {}, showSk = true, knownQuery = "", statsFilter = "h", confirmReset = false;
 const LS = "tisicka-v1";
 try { const s = JSON.parse(localStorage.getItem(LS)); if (s && s.w) st = Object.assign(st, s); } catch (e) {}
 
@@ -326,7 +328,7 @@ function viewLearn(c) {
     <div class="panel stack" style="gap:10px">
       <div class="row spread"><h3>Písanie</h3><span class="small muted num">${wr} z ${WRITE_MIN} slov</span></div>
       ${wr >= WRITE_MIN
-        ? `<p class="small muted">Vidíš slovenské slovo a napíšeš anglické. Zahrnuté sú slová zo skupín Váham a Nové.</p><div><button class="btn primary" data-write="1">Spustiť písanie</button></div>`
+        ? `<p class="small muted">Vidíš slovenské slovo a napíšeš anglické. Kolo má najviac ${WRITE_MAX} slov zo skupín Váham a Nové. Správne napísané slovo sa presunie medzi Viem.</p><div><button class="btn primary" data-write="all">Spustiť písanie</button></div>`
         : `<p class="small muted">Odomkne sa, keď budeš mať aspoň ${WRITE_MIN} slov v skupinách Váham a Nové. Zatiaľ ich máš ${wr}.</p><div class="bar" aria-hidden="true"><span class="k" style="width:${(100 * wr / WRITE_MIN).toFixed(0)}%"></span></div>`}
     </div>
     <div class="panel stack" style="gap:10px">
@@ -344,7 +346,9 @@ function viewLearn(c) {
 function startSession(deck, extra, write) {
   const d = today();
   let ids = WORDS.filter(w => { const s = st.w[w.id]; return s && (deck ? s[0] === deck : s[0] !== "k") && (extra || write || s[2] <= d); })
-    .sort((a, b) => st.w[a.id][2] - st.w[b.id][2] || Math.random() - 0.5).slice(0, SESSION).map(w => w.id);
+    .sort((a, b) => write ? (st.w[a.id][3] || 0) - (st.w[b.id][3] || 0) || Math.random() - 0.5
+                          : st.w[a.id][2] - st.w[b.id][2] || Math.random() - 0.5)
+    .slice(0, write ? WRITE_MAX : SESSION).map(w => w.id);
   for (let i = ids.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [ids[i], ids[j]] = [ids[j], ids[i]]; }
   if (!ids.length) return;
   const mode = write ? "write" : "cards";
@@ -355,10 +359,16 @@ function startSession(deck, extra, write) {
 function viewCard() {
   const s = session;
   if (s.i >= s.queue.length) {
+    const left = WORDS.filter(w => { const x = st.w[w.id]; return x && x[0] !== "k" && (!s.deck || x[0] === s.deck); }).length;
     return `<div class="panel empty stack"><h2>Kolo hotové</h2>
       <p class="num"><b style="color:var(--know)">${s.res.k} viem</b> · <b style="color:var(--unsure)">${s.res.h} váham</b> · <b style="color:var(--newc)">${s.res.n} neviem</b></p>
-      <p class="muted small">Slová označené „Neviem“ alebo „Váham“ sa vrátia skôr.</p>
-      <div class="row" style="justify-content:center"><button class="btn primary" id="endSession">Späť na prehľad</button></div></div>`;
+      ${s.mode === "write"
+        ? `<p class="muted small">Správne napísané slová sa presunuli medzi slová, ktoré vieš.</p>`
+        : `<p class="muted small">Slová označené „Neviem“ alebo „Váham“ sa vrátia skôr.</p>`}
+      <div class="row" style="justify-content:center">
+        ${s.mode === "write" && left ? `<button class="btn primary" data-write="${s.deck || "all"}">Ďalšie kolo (zostáva ${left})</button>` : ""}
+        <button class="btn ${s.mode === "write" && left ? "" : "primary"}" id="endSession">Späť na prehľad</button>
+      </div></div>`;
   }
   const w = BYID[s.queue[s.i]], rec = st.w[w.id], deckName = rec[0] === "h" ? "Váham" : "Nové";
   const skFirst = s.mode === "write" || st.opts.dir === "sk";
@@ -396,7 +406,12 @@ function viewCard() {
 
 function rate(r) {
   const s = session, id = s.queue[s.i], rec = st.w[id], d = today();
-  if (r === "n") {
+  if (s.mode === "write") {
+    rec[3] = Date.now();
+    if (r === "k") rec[0] = "k";                       // správne napísané = Viem
+    else if (r === "h") { if (rec[0] === "n") rec[0] = "h"; rec[2] = d; } // skoro: aspoň Váham
+    else rec[2] = d;                                   // nesprávne: ostáva kde je, bez opakovania v kole
+  } else if (r === "n") {
     rec[1] = 0; rec[2] = d;
     if (!s.again.has(id)) { s.again.add(id); s.queue.push(id); } // one more try at the end of this round
   } else if (r === "h") {
@@ -421,22 +436,30 @@ function checkTyped() {
 }
 
 function viewStats(c) {
-  const q = knownQuery.trim().toLowerCase();
-  const known = WORDS.filter(w => st.w[w.id]?.[0] === "k" && (!q || w.en.toLowerCase().includes(q) || w.sk.toLowerCase().includes(q)));
+  const q = knownQuery.trim().toLowerCase(), f = statsFilter;
+  const list = WORDS.filter(w => st.w[w.id]?.[0] === f && (!q || w.en.toLowerCase().includes(q) || w.sk.toLowerCase().includes(q)));
+  const title = { k: "Slová, ktoré viem", h: "Slová, pri ktorých váham", n: "Nové slová" }[f];
+  const hint = { k: "Tieto sa ti nezobrazujú. Ak niektoré chceš predsa ešte precvičiť, vráť ho do učenia.",
+                 h: "Preskúšaj sa písaním. Správne napísané slovo sa presunie medzi Viem a prehľad sa prepočíta.",
+                 n: "Preskúšaj sa písaním. Správne napísané slovo sa presunie medzi Viem a prehľad sa prepočíta." }[f];
+  const stat = (k, n, l) => `<button class="stat ${k}" data-filter="${k}" aria-pressed="${f === k}"><b>${n}</b><span class="small muted">${l}</span></button>`;
+  const rowBtn = w => f === "k"
+    ? `<button class="btn ghost small" data-back="${esc(w.id)}">Vrátiť do učenia</button>`
+    : `<button class="btn ghost small" data-mark="${esc(w.id)}">Už viem</button>`;
+  const sk = (w) => esc(w.sk);
   return `<div class="stack">
     <div class="stats num">
-      <div class="stat k"><b>${c.k}</b><span class="small muted">viem</span></div>
-      <div class="stat h"><b>${c.h}</b><span class="small muted">váham</span></div>
-      <div class="stat n"><b>${c.n}</b><span class="small muted">nové</span></div>
+      ${stat("k", c.k, "viem")}${stat("h", c.h, "váham")}${stat("n", c.n, "nové")}
       <div class="stat"><b>${streak()}</b><span class="small muted">dní v rade</span></div>
     </div>
     ${bar(c)}
     <div class="stack" style="gap:10px">
-      <h2>Slová, ktoré viem</h2>
-      <p class="small muted">Tieto sa ti nezobrazujú. Ak niektoré chceš predsa ešte precvičiť, vráť ho do učenia.</p>
-      <input class="search" id="kq" type="search" placeholder="Hľadať slovo" value="${esc(knownQuery)}" aria-label="Hľadať medzi naučenými slovami">
-      ${known.length ? `<ul class="known">${known.slice(0, 300).map(w => `<li><button class="speak" data-say="${esc(w.en)}" aria-label="Prečítať">${SPEAK}</button><div class="w"><b>${esc(w.en)}</b> <span class="muted">${esc(w.sk)}</span></div><button class="btn ghost small" data-back="${esc(w.id)}">Vrátiť do učenia</button></li>`).join("")}</ul>`
-        : `<p class="panel muted small">${q ? "Nič sa nenašlo." : "Zatiaľ tu nič nie je. Slová pribudnú, keď ich v Triedení označíš ako „Viem“."}</p>`}
+      <div class="row spread"><h2>${title}</h2><span class="muted small num">${list.length}</span></div>
+      <p class="small muted">${hint}</p>
+      ${f !== "k" && list.length ? `<div><button class="btn primary" data-write="${f}">Preskúšať písaním (najviac ${WRITE_MAX})</button></div>` : ""}
+      <input class="search" id="kq" type="search" placeholder="Hľadať slovo" value="${esc(knownQuery)}" aria-label="Hľadať slovo">
+      ${list.length ? `<ul class="known">${list.slice(0, 300).map(w => `<li><button class="speak" data-say="${esc(w.en)}" aria-label="Prečítať">${SPEAK}</button><div class="w"><b>${sk(w)}</b> <span class="muted">${esc(w.en)}</span></div>${rowBtn(w)}</li>`).join("")}</ul>`
+        : `<p class="panel muted small">${q ? "Nič sa nenašlo." : f === "k" ? "Zatiaľ tu nič nie je. Slová pribudnú, keď ich označíš ako „Viem“ alebo ich správne napíšeš." : "Tu je zatiaľ prázdno."}</p>`}
     </div>
     <div class="panel row spread">
       <span class="small muted">${confirmReset ? "Naozaj vymazať celý pokrok? Toto sa nedá vrátiť." : "Začať odznova"}</span>
@@ -448,7 +471,11 @@ function viewStats(c) {
 /* ---------- events ---------- */
 document.addEventListener("click", e => {
   const t = e.target.closest("button"); if (!t) return;
-  if (t.dataset.tab) { tab = t.dataset.tab; confirmReset = false; render(); return; }
+  if (t.dataset.tab) {
+    tab = t.dataset.tab; confirmReset = false;
+    if (tab === "stats") { const c = counts(); if (!c[statsFilter]) statsFilter = ["h", "n", "k"].find(k => c[k]) || statsFilter; }
+    render(); return;
+  }
   if (t.dataset.go) { tab = t.dataset.go; render(); return; }
   if (t.dataset.say) { speak(t.dataset.say); return; }
   if (t.dataset.v && t.dataset.id) { sortDraft[t.dataset.id] = t.dataset.v; render(); return; }
@@ -463,7 +490,9 @@ document.addEventListener("click", e => {
   }
   if (t.dataset.dir) { st.opts.dir = t.dataset.dir; save(); render(); return; }
   if (t.dataset.start) { startSession(t.dataset.start, false); return; }
-  if (t.dataset.write) { startSession(null, true, true); return; }
+  if (t.dataset.write) { startSession(t.dataset.write === "all" ? null : t.dataset.write, true, true); return; }
+  if (t.dataset.filter) { statsFilter = t.dataset.filter; knownQuery = ""; render(); return; }
+  if (t.dataset.mark) { const r = st.w[t.dataset.mark]; if (r) { r[0] = "k"; r[1] = 0; r[2] = today(); save(); render(); toast("Presunuté medzi Viem"); } return; }
   if (t.dataset.extra) { startSession(null, true); return; }
   if (t.id === "flip") { session.flipped = true; render(); return; }
   if (t.id === "hint") { session.hint = true; if (session.mode === "write") session.typed = $("#typein").value; render(); return; }
